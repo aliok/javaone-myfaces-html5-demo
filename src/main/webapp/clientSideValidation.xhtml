@@ -1,0 +1,31 @@
+<ui:composition template="/_template.xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:hx="http://myfaces.apache.org/html5/html"
+    xmlns:fx="http://myfaces.apache.org/html5/core"
+    xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      
+    <ui:define name="pageName">
+        Driving Properties and Client-Side Validation by JSF Validators/Converters
+    </ui:define>
+
+    <ui:define name="content">
+        <p>
+            Notes:
+            <ul>
+                <li>Try on Chrome (or Opera)</li>
+            </ul>
+        </p>
+        <div class="slide">
+            <ui:include src="/sections/clientSideValidation01.xhtml" />
+        </div>
+        <div class="slide">
+            <ui:include src="/sections/clientSideValidation02.xhtml" />
+        </div>
+        <div class="slide">
+            <ui:include src="/sections/clientSideValidation03.xhtml" />
+        </div>
+    </ui:define>        
+        
+</ui:composition>

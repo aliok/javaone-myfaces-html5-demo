@@ -1,0 +1,59 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:hx="http://myfaces.apache.org/html5/html"
+      xmlns:fx="http://myfaces.apache.org/html5/core"
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      
+      
+              <h:outputStylesheet target="head" id="videoStyles">
+	             video {
+	               z-index: 1000;
+	               -webkit-transition: all 1s ease-out; 
+	               -moz-transition: all 1s ease-out;
+	               -o-transition: all 1s ease-out;
+	             }
+              </h:outputStylesheet>
+              
+              <h:panelGrid columns="1">
+             
+	            <hx:video id="video01" showControls="true" 
+	                autoplay="false" preload="none" poster="#{request.contextPath}/resources/video/mother_goose_thumbnail_small.png" width="400" height="300" >
+	                <f:facet name="fallback">
+	                    <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="400" height="300"> 
+	                        <param name="movie" value="#{request.contextPath}/resources/video/player.swf" /> 
+	                        <param name="allowfullscreen" value="true" /> 
+	                        <param name="allowscriptaccess" value="always" /> 
+	                        <param name="flashvars" value="file=#{request.contextPath}/resources/video/mother_goose_flv.flv" /> 
+	                        <embed
+	                            type="application/x-shockwave-flash"
+	                            id="player2"
+	                            name="player2"
+	                            src="#{request.contextPath}/resources/video/player.swf" 
+	                            width="400" 
+	                            height="300"
+	                            allowscriptaccess="always" 
+	                            allowfullscreen="true"
+	                            flashvars="file=#{request.contextPath}/resources/video/mother_goose_flv.flv" 
+	                        /> 
+	                    </object> 
+	                </f:facet>
+	             
+	                <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_h264.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+	            </hx:video>
+	            <sh:sh><![CDATA[
+	                <hx:video ...>
+	                    <f:facet name="fallback">
+	                      <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" ...>
+	                      ...
+	                      </object>  
+	                    </f:facet>
+	                    ....
+	                    <fx:mediaSource src="... mother_goose_ogg.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+	                    <fx:mediaSource src="... mother_goose_ogg.ogv" contentType="video/ogg" codec="theo, vorb"/>
+	                </hx:video>
+	            ]]></sh:sh>
+	          </h:panelGrid>
+</ui:composition>

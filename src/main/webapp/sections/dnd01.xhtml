@@ -1,0 +1,75 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:hx="http://myfaces.apache.org/html5/html"
+      xmlns:fx="http://myfaces.apache.org/html5/core"
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      
+      
+              <h:outputStylesheet id="dndStyle" target="head"> 
+		          .dropZone, .dropZone02, .dropZone03, .dragSource01, .dragSource02 {text-align: center; color:green; font-size:30px; }
+		          .dragSource01 { width: 210px; height: 100px; background-image: url("#{request.contextPath}/resources/image/MyFaces_logo.jpg"); }
+		          .dragSource02 { width: 210px; height: 100px; background-image: url("#{request.contextPath}/resources/image/MyFaces_logo.jpg"); }
+		          
+		          .dropZone, .dropZone02, .dropZone03 { float: right; border: 2px dashed gray;}
+		          .dropZone { width: 219px; height: 213px; background-image: url("#{request.contextPath}/resources/image/apache_feather.png"); }
+		          .dropZone02 { width: 219px; height: 213px;}
+		          .dropZone03 { min-width: 300px; min-height: 300px; float: none;}
+		          .dragEntered { border: 4px dashed green; background-color: #88FF00;}
+		          
+		          .team { width: 250px; height: 80px; color:darkGray; border: 1px solid gray; font-size: 20px;}
+	          </h:outputStylesheet>
+	          
+	          <h:form prependId="false">
+		          <table width="100%" >
+		                <tr>
+		                    <td>
+		                        <hx:div styleClass="dragSource01">
+		                            <fx:dragSource action="copy" param="MyFaces" />
+		                            <h:outputText value="DRAG ME"/>
+		                        </hx:div>
+		                    </td>
+		                    <td>
+		                        <hx:div id="dropZone01" styleClass="dropZone"
+		                            ondragenter="document.getElementById('dropZone01').className='dropZone dragEntered';"
+		                            ondragleave="document.getElementById('dropZone01').className='dropZone';"
+		                            >
+		                            <fx:dropTarget dropListener="#{dndBean.processSimpleDnd}" 
+		                                rerender="simpleDndOutput"/>
+		                            <div style="padding-top:45%; text-align: center;">
+		                                <h:outputText value="DROP HERE" />
+		                            </div>
+		                        </hx:div>
+		                    </td>
+		                </tr>
+		                <tr>
+		                    <td colspan="2"  align="center">
+		                        <span>Output of drop listener : </span><br/>
+		                        <h:outputText value="#{dndBean.simpleDndOutput}" id="simpleDndOutput" escape="false" style="color:green; font-size:medium;"/>
+		                    </td>
+		                </tr>
+		                <tr>
+		                   <td colspan="2">
+	                            <sh:sh><![CDATA[
+	                               <hx:div ...>
+	                                    <fx:dragSource action="copy" param="MyFaces" /> ...
+	                               </hx:div>
+	                               ...
+	                               <hx:div ...>
+	                                    <fx:dropTarget dropListener="#_{dndBean.processSimpleDnd}" rerender="simpleDndOutput"/> ...
+	                               </hx:div>
+	                           ]]></sh:sh>
+	                           <sh:sh lang="java"><![CDATA[
+	                               public void processSimpleDnd(DropEvent event) throws AbortProcessingException{
+	                                    String param = event.getParam();
+	                                    Map<String, String> dropDataMap = event.getDropDataMap();
+	                                    ...
+	                                }
+	                           ]]></sh:sh>
+	                        </td>
+		                </tr>
+		            </table>
+	            </h:form>
+</ui:composition>

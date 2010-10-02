@@ -1,0 +1,27 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:hx="http://myfaces.apache.org/html5/html"
+      xmlns:fx="http://myfaces.apache.org/html5/core"
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      
+      
+      <ui:decorate template="/slideDecorator.xhtml">
+          <ui:define name="title">
+              Media
+          </ui:define>
+    
+          <ui:define name="content">
+            <ui:include src="/sections/media01.xhtml" />
+          </ui:define>
+          
+          <ui:define name="footer">
+              You will see a flash fallback in IE or anyother browser that does not support Html5 video.<br/>
+              Try on Chrome or (Firefox 4) for best experience.<br/>
+              The video will be played on Chrome, but not on Opera or Firefox since the only media source defined in first video (h264 on mp4) is not supported by them.<br/>
+          </ui:define>
+      
+      </ui:decorate>
+</ui:composition>

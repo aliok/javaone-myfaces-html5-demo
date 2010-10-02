@@ -1,0 +1,31 @@
+@CHARSET "ISO-8859-1";
+
+	.roundedBox
+    {
+        border-radius: 20px;
+        -moz-border-radius: 20px;
+    }
+    
+    .codeBox
+    {
+        border-radius: 3px;
+        -moz-border-radius: 3px;
+        
+        border: 1px solid #999; 
+        padding: 3px 0px 5px 0px;
+        width: 98% !important;
+        
+         box-shadow: rgba(150, 150, 150, 0.85) -3px 7px 9px;
+        -webkit-box-shadow: rgba(150, 150, 150, 0.85) -3px 7px 9px;
+        -moz-box-shadow: rgba(150, 150, 150, 0.85) -3px 7px 9px;
+    }
+
+    .gradientBox
+    {
+        background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(white));
+        background: -moz-linear-gradient(-90deg, #EEEEEE, white);
+        
+        box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
+        -webkit-box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
+        -moz-box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
+    }

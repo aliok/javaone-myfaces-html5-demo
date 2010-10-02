@@ -1,0 +1,96 @@
+@CHARSET "ISO-8859-1";
+
+    input, a {
+        -webkit-transition: all 0.5s ease-out; 
+        -moz-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+    }
+
+	input, textarea
+    {
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        
+        font-family: 'Heuristica-Bold';
+        font-size: 100%;
+    }
+    
+    textarea {
+        border-width : 2px;
+        border-collapse: separate;
+        border-color: #EEE;
+		border-style: inset;
+    }
+	
+	input[type=submit], input[type=button], button
+    {
+        box-shadow: rgba(204, 204, 204, 0.6) -3px 7px 9px;
+        -webkit-box-shadow: rgba(204, 204, 204, 0.6) -3px 7px 9px;
+        -moz-box-shadow: rgba(204, 204, 204, 0.6) -3px 7px 9px;
+
+        border-radius: 8px;
+        -moz-border-radius: 8px;
+
+        background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(white));
+        background: -moz-linear-gradient(-90deg, #EEEEEE, white);
+        font-family: 'IMFeENsc29P';
+        font-size: large;
+    }
+    
+    input[type=submit]:hover, input[type=button]:hover, button:hover
+    {
+        box-shadow: rgba(204, 204, 204, 1) -3px 7px 9px;
+        -webkit-box-shadow: rgba(204, 204, 204, 1) -3px 7px 9px;
+        -moz-box-shadow: rgba(204, 204, 204, 1) -3px 7px 9px;
+    }
+    
+    input::-webkit-input-placeholder, isindex::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+	   color: darkGray;
+	}
+	
+    :invalid  {
+	    -webkit-animation-name: flash;
+	    -webkit-animation-duration: 0.4s;
+	    -webkit-animation-iteration-count: 3;
+	    -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+        
+        background-color: yellow;
+    }
+    
+    input:invalid::-webkit-input-placeholder {
+       color: #D00;
+    }
+    
+    a, a:visited
+    {
+        text-decoration: none;
+        color: black;
+    }
+    
+    a:hover
+    {
+        text-decoration: none;
+        
+        border: 2px solid darkGray;
+        border-radius: 8px;
+        -moz-border-radius: 8px;
+        
+        background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(white));
+        background: -moz-linear-gradient(-90deg, #EEEEEE, white);
+
+        box-shadow: rgba(204, 204, 204, 0.8) -3px 7px 9px;
+        -webkit-box-shadow: rgba(204, 204, 204, 0.8) -3px 7px 9px;
+        -moz-box-shadow: rgba(204, 204, 204, 0.8) -3px 7px 9px;
+    }
+    
+    .syntaxhighlighter table td.code {
+        font-size: 12px !important;
+    }
+    
+    .infoSlide{
+        height: 370px;
+		position: relative;
+		text-align: center;
+		top: 25%;
+    }

@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite">
+
+<composite:interface>
+    <composite:attribute name="lang" default="xml"/>
+    <composite:attribute name="gutter" default="false"/>
+</composite:interface>
+
+
+<composite:implementation>
+    <h:outputStylesheet target="head">
+        .demoCode { font-size: smaller !important; overflow:hidden !important; }
+    </h:outputStylesheet>
+    
+	<script type="syntaxhighlighter" class="brush: #{cc.attrs.lang};  gutter: #{cc.attrs.gutter}; toolbar: false; class-name: 'demoCode codeBox'">
+        <composite:insertChildren />
+	</script>
+</composite:implementation>
+</html>

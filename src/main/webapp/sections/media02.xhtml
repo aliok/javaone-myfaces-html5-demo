@@ -1,0 +1,97 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:hx="http://myfaces.apache.org/html5/html"
+      xmlns:fx="http://myfaces.apache.org/html5/core"
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      
+      
+              <h:outputScript target="head" id="videoScripts">
+	             function play(){
+	                 document.getElementById('video02').play();
+	             }
+	             function pause(){
+	                 document.getElementById('video02').pause();
+	             }
+	             function styledVideoMouseOver(video){
+	               video.className = 'styledVideo';
+	               video.play();
+	             }
+	             function styledVideoMouseOut(video){
+	               video.className = '';
+	               video.pause();
+	             }
+              </h:outputScript>
+              
+              <h:outputStylesheet target="head" id="videoStyles">
+                 video {
+                   z-index: 1000;
+                   -webkit-transition: all 1s ease-out; 
+                   -moz-transition: all 1s ease-out;
+                   -o-transition: all 1s ease-out;
+                 }
+              </h:outputStylesheet>
+              
+              <h:outputStylesheet target="head" id="videoEffectStyles">
+                 .styledVideo{
+		               box-shadow: 5px 44px 28px #333;
+		               -webkit-box-shadow: 5px 44px 28px #333;
+		               -moz-box-shadow: 5px 44px 28px #333;
+		               
+		               -webkit-transform: translate(100px, 30px) scale(1.3) rotate(365deg);
+		               -moz-transform: translate(100px, 30px) scale(1.3) rotate(365deg);
+		               -o-transform: translate(100px, 30px) scale(1.3) rotate(365deg);
+		               
+		               -webkit-box-reflect: below 1px -webkit-gradient(linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25))) 0 0 0 0 stretch stretch;
+		             }  
+              </h:outputStylesheet>
+              
+              <h:panelGrid columns="1">
+                <h:panelGroup>
+	                <h:panelGrid columns="1">
+	                    <hx:video id="video02" showControls="false" onmouseover="styledVideoMouseOver(this);" onmouseout="styledVideoMouseOut(this);" 
+	                        autoplay="false" preload="none" poster="#{request.contextPath}/resources/video/mother_goose_thumbnail_small.png" width="400" height="300" >
+	                        <f:facet name="fallback">
+	                          <p style="color: red;">No Html5 video support here!</p>
+	                          <p>You can embed a Flash video in here.</p>
+	                        </f:facet>
+	                
+	                        <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_ogg.ogv" contentType="video/ogg" codec="theo, vorb"/>        
+	                        <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_h264_copy.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+	                    </hx:video>
+	                 
+	                    <h:panelGroup>
+	                        <button onclick="play(); return false;">Play</button>
+	                        <button onclick="pause(); return false;">Pause</button>
+	                    </h:panelGroup>
+	                </h:panelGrid>
+	            </h:panelGroup>
+	            <h:panelGroup>
+	                <sh:sh><![CDATA[
+	                    <hx:video id="motherGooseVideo" showControls="false" poster="... mother_goose_thumbnail_small.png"
+	                        onmouseover="styledVideoMouseOver(this);" onmouseout="styledVideoMouseOut(this);">
+	                        <fx:mediaSource src="... mother_goose_ogg.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+	                    </hx:video>
+	                    <button onclick="document.getElementById('motherGooseVideo').play();">Play</button>
+	                    <button onclick="document.getElementById('motherGooseVideo').pause();">Pause</button>
+	                ]]></sh:sh>
+	                <sh:sh lang="js"><![CDATA[
+	                    function styledVideoMouseOver(video){
+	                        video.className = 'styledVideo';
+	                        video.play();
+	                    }
+	                ]]></sh:sh>
+	                <sh:sh lang="css"><![CDATA[
+	                    .styledVideo{
+	                        box-shadow: 5px 44px 28px #333;
+	                        transform: translate(0, 10px) scale(1.3) rotate(365deg);
+	                        box-reflect: below 1px -webkit-gradient
+	                           (linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25)))
+	                           0 0 0 0 stretch stretch;
+	                    }  
+	                ]]></sh:sh>
+	            </h:panelGroup>
+              </h:panelGrid>
+</ui:composition>

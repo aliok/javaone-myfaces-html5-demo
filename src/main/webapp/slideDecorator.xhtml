@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:hx="http://myfaces.apache.org/html5/html"
+      xmlns:fx="http://myfaces.apache.org/html5/core">
+            
+      <div class="slide">
+           <section>
+               <header>
+                   <h2>
+                        <ui:insert name="title" />
+                   </h2>
+               </header>
+               
+               <ui:insert name="content" />
+
+           </section>
+           <footer>
+               <ui:insert name="footer" />
+           </footer>
+       </div>
+
+</ui:composition>

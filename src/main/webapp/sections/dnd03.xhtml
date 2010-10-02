@@ -1,0 +1,165 @@
+<ui:composition
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:hx="http://myfaces.apache.org/html5/html"
+      xmlns:fx="http://myfaces.apache.org/html5/core"
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      
+      
+              <h:outputStylesheet id="dynamicDndStyle" target="head"> 
+                  .dropZone03{text-align: center; color:green; font-size:17px; }
+		          .dropZone03 { float: right; border: 2px dashed gray;}
+		          .dropZone03 { min-width: 210px; min-height: 220px; float: none;}
+		          .dragEntered { border: 4px dashed green; background-color: #88FF00;}
+		          
+		          .team { 
+		              width: 200px; 
+	                  height: 38px; 
+	                  color:gray; 
+	                  border: 1px solid gray; 
+	                  font-size: 17px;
+	                  text-shadow: 0 3px 5px rgba(100, 100, 100, 0.5);
+                  }
+		          .team img {
+		              width: 35px;
+		          }
+		          
+		          #dynamicDndCodeTable .syntaxhighlighter table td.code {
+				        font-size: 11px !important;
+				  }
+		          
+	          </h:outputStylesheet>
+	          
+	          <h:form prependId="false">
+		          <hx:div id="dynamicDnDContainer">
+	                <table width="100%">
+	                    <tr>
+	                        <td align="left">
+	                              <hx:div id="teamDropZone" styleClass="dropZone03"
+	                                    ondragenter="document.getElementById('teamDropZone').className='dropZone03 dragEntered';"
+	                                    ondragleave="document.getElementById('teamDropZone').className='dropZone03';">
+	                                  <fx:dropTarget dropListener="#{dndBean.processTeamDrop}" rerender="dynamicDnDContainer" types="F,B"/>
+	                                  
+	                                  <div style="padding:5px; text-align: center;">
+	                                      <h:outputText value="All Teams" />
+	                                  </div>
+	                                  
+	                                  <h:dataTable value="#{dndBean.teams}" var="team">
+	                                      <h:column>
+	                                          <hx:div styleClass="team">
+	                                              <fx:dragSource action="move" param="#{team.id}" dropTargetTypes="#{team.type.code}" />
+	                                              <img src="#{request.contextPath}/resources/image/team/#{team.id}.png" draggable="false" />
+	                                              <h:outputText value="#{team.name}" draggable="false"/>
+	                                          </hx:div>
+	                                      </h:column>
+	                                  </h:dataTable>
+	                              </hx:div>
+	                        </td>
+	                        <td align="center">
+	                            <hx:div id="basketballTeamDropZone" styleClass="dropZone03"
+	                                    ondragenter="document.getElementById('basketballTeamDropZone').className='dropZone03 dragEntered';"
+	                                    ondragleave="document.getElementById('basketballTeamDropZone').className='dropZone03';">
+	                                 <fx:dropTarget dropListener="#{dndBean.processBasketballTeamDrop}" rerender="dynamicDnDContainer" types="B"/>
+	                                    
+	                                 <div style="padding:5px; text-align: center;">
+	                                    <h:outputText value="Basketball Teams" />
+	                                 </div>
+	                                             
+	                                 <h:dataTable value="#{dndBean.basketballTeams}" var="team">
+	                                      <h:column>
+	                                          <hx:div styleClass="team">
+	                                              <fx:dragSource action="move" param="#{team.id}" dropTargetTypes="#{team.type.code}" />
+	                                              <img src="#{request.contextPath}/resources/image/team/#{team.id}.png" draggable="false" />
+	                                              <h:outputText value="#{team.name}" draggable="false"/>
+	                                          </hx:div>
+	                                      </h:column>
+	                                 </h:dataTable>
+	                             </hx:div>
+	                         </td>
+	                        <td align="right">
+	                              <hx:div id="footballTeamDropZone" styleClass="dropZone03"
+	                                     ondragenter="document.getElementById('footballTeamDropZone').className='dropZone03 dragEntered';"
+	                                     ondragleave="document.getElementById('footballTeamDropZone').className='dropZone03';">
+	                                  <fx:dropTarget dropListener="#{dndBean.processFootballTeamDrop}" rerender="dynamicDnDContainer" types="F"/>
+	                              
+	                                  <div style="padding:5px; text-align: center;">
+	                                     <h:outputText value="Football Teams" />
+	                                  </div>
+	                              
+	                                 <h:dataTable value="#{dndBean.footballTeams}" var="team">
+	                                      <h:column>
+	                                          <hx:div styleClass="team">
+	                                              <fx:dragSource action="move" param="#{team.id}" dropTargetTypes="#{team.type.code}" />
+	                                              <img src="#{request.contextPath}/resources/image/team/#{team.id}.png" draggable="false" />
+	                                              <h:outputText value="#{team.name}" draggable="false"/>
+	                                          </hx:div>
+	                                      </h:column>
+	                                 </h:dataTable>
+	                             </hx:div>
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td colspan="1" align="center">
+                                <h:commandButton action="#{dndBean.initTeams}" value="Refresh Teams">
+                                    <f:ajax render="@form"/>
+                                </h:commandButton>
+                            </td>
+	                        <td colspan="2" align="center">
+	                            <span>Output of drop listener : </span>
+	                            <h:outputText value="#{dndBean.teamDropOutput}" id="teamDropOutput" escape="false" style="color:green; font-size:medium;"/>
+	                        </td>
+	                    </tr>
+	                </table>
+	            </hx:div>
+            </h:form>
+            <table id="dynamicDndCodeTable">
+                <tr>
+                    <td>
+		               <sh:sh><![CDATA[
+		                      <h:dataTable value="#_{dndBean.teams}" var="team">
+		                           <h:column>
+		                               <hx:div ...>
+		                                   <fx:dragSource param="#_{team.id}" dropTargetTypes="#_{team.type.code}" />
+		                                   ...
+		                               </hx:div>
+		                           </h:column>
+		                       </h:dataTable>
+		                       ...
+		                       <hx:div id="basketballTeamDropZone" ...>
+		                           <fx:dropTarget dropListener="#_{dndBean.processBasketballTeamDrop}" 
+		                              rerender="@form" types="B"/>...
+		                           <!-- List dropped basketball teams into this target -->
+		                           <h:dataTable value="#_{dndBean.basketballTeams}" var="team">
+		                                <h:column>
+		                                    <hx:div styleClass="team">...
+		                                        <h:outputText value="#_{team.name}" .../>
+		                                    </hx:div>
+		                                </h:column>
+		                           </h:dataTable>
+		                       </hx:div>
+		                 ]]></sh:sh>
+	                 </td>
+                    <td>
+                     <sh:sh><![CDATA[
+                           <hx:div id="footbalTeamDropZone" ...>...
+                               <fx:dropTarget ... types="F"/>
+                           </hx:div>
+                     ]]></sh:sh>
+	                 <sh:sh lang="java"><![CDATA[
+	                     public void processBasketballTeamDrop(DropEvent event) 
+	                       throws AbortProcessingException{
+	                          String teamId = event.getParam();
+	                          ...
+	                          SportsTeam droppedTeam = getTeam(
+	                             this.basketballTeamsList, teamId);
+	                          ...
+	                          teams.remove(droppedTeam);
+	                          basketballTeams.add(droppedTeam);
+	                     }
+	                 ]]></sh:sh>
+                    </td>
+                   </tr>
+                  </table>
+</ui:composition>

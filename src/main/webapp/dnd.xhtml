@@ -1,0 +1,33 @@
+<ui:composition template="/_template.xhtml" 
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:hx="http://myfaces.apache.org/html5/html"
+    xmlns:fx="http://myfaces.apache.org/html5/core"
+    xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+
+   <ui:define name="pageName">
+       Drag and Drop
+   </ui:define>
+   
+   <ui:define name="content">
+       <p>
+           Notes:
+           <ul>
+               <li>Works best in Firefox</li>
+               <li>Does not work in Chrome because of <a href="http://code.google.com/p/chromium/issues/detail?id=50009" style="text-decoration: underline;">Chromium Issue-50009</a></li>
+           </ul>
+       </p>
+       <div class="slide">
+            <ui:include src="/sections/dnd01.xhtml" />
+       </div>
+       <div class="slide">
+            <ui:include src="/sections/dnd02.xhtml" />
+       </div>
+       <div class="slide">
+            <ui:include src="/sections/dnd03.xhtml" />
+       </div>
+       
+   </ui:define>        
+       
+</ui:composition>

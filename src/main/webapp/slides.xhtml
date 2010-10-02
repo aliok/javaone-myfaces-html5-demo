@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+<!--
+  Copyright 2010 Google Inc.
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ 
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Ernest Delgado (ernestd@google.com)
+                 Alex Russell (slightlyoff@chromium.org)
+                 Brad Neuberg
+                 Ali Ok
+--> 
+<html lang="en"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+	<h:head>
+	    <!-- SyntaxHighlighter stuff  -->
+	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shCore.js"></script>
+	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushXml.js"></script>
+	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushJava.js"></script>
+	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushJScript.js"></script>
+	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushCss.js"></script>
+	    <link href="#{request.contextPath}/resources/script/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+	    <link href="#{request.contextPath}/resources/script/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="#{request.contextPath}/resources/script/demo/common.js"></script>
+    
+	    <link href="#{request.contextPath}/resources/style/text.css" rel="stylesheet" type="text/css" />
+	    <link href="#{request.contextPath}/resources/style/animation.css" rel="stylesheet" type="text/css" />
+	    <link href="#{request.contextPath}/resources/style/box.css" rel="stylesheet" type="text/css" />
+	    <link href="#{request.contextPath}/resources/style/common.css" rel="stylesheet" type="text/css" />
+	    <link href="#{request.contextPath}/resources/style/slides.css" rel="stylesheet" type="text/css" />    
+
+	    <meta charset="utf-8" /> 
+	    <title>HTML5 presentation</title> 
+	    
+	  </h:head> 
+    <h:body style="align:center;" class="nodecorate"> 
+      <div class="presentation">
+        <div id="presentation-counter"></div> 
+            <div class="slides"> 
+                
+                <ui:include src="/slides/info.xhtml" />
+                <ui:include src="/slides/howto.xhtml" />
+                <ui:include src="/slides/slidesIndex.xhtml" />
+                <ui:include src="/slides/inputTypes.xhtml" />
+                <ui:include src="/slides/datetime.xhtml" />
+                <ui:include src="/slides/suggestions.xhtml" />
+                <ui:include src="/slides/clientSideValidation01.xhtml" />
+                <ui:include src="/slides/clientSideValidation02.xhtml" />
+                <ui:include src="/slides/clientSideValidation03.xhtml" />
+                <ui:include src="/slides/dnd01.xhtml" />
+                <ui:include src="/slides/dnd02.xhtml" />
+                <ui:include src="/slides/dnd03.xhtml" />
+                <ui:include src="/slides/media01.xhtml" />
+                <ui:include src="/slides/media02.xhtml" />
+                
+            </div> 
+        </div>
+ 
+    <script type="text/javascript" src="#{request.contextPath}/resources/script/demo/slides.js"></script>
+    <script>
+         SyntaxHighlighter.all();
+    </script>
+  </h:body> 
+</html>
