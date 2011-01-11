@@ -8,7 +8,7 @@
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
       
       
-              <h:outputStylesheet id="dndStyle" target="head"> 
+              <h:outputStylesheet id="dnd01Style" target="head"> 
 		          .dropZone, .dropZone02, .dropZone03, .dragSource01, .dragSource02 {text-align: center; color:green; font-size:30px; }
 		          .dragSource01 { width: 210px; height: 100px; background-image: url("#{request.contextPath}/resources/image/MyFaces_logo.jpg"); }
 		          .dragSource02 { width: 210px; height: 100px; background-image: url("#{request.contextPath}/resources/image/MyFaces_logo.jpg"); }
@@ -17,7 +17,9 @@
 		          .dropZone { width: 219px; height: 213px; background-image: url("#{request.contextPath}/resources/image/apache_feather.png"); }
 		          .dropZone02 { width: 219px; height: 213px;}
 		          .dropZone03 { min-width: 300px; min-height: 300px; float: none;}
-		          .dragEntered { border: 4px dashed green; background-color: #88FF00;}
+
+                  .dragStarted { border: 2px solid yellow;}
+                  .dragEntered { border: 4px dashed green; background-color: #88FF00;}
 		          
 		          .team { width: 250px; height: 80px; color:darkGray; border: 1px solid gray; font-size: 20px;}
 	          </h:outputStylesheet>
@@ -27,16 +29,15 @@
 		                <tr>
 		                    <td>
 		                        <hx:div styleClass="dragSource01">
-		                            <fx:dragSource action="copy" param="MyFaces" />
+		                            <fx:effects event="dragstart" additionalStyleClassToActivate="dragStarted" duration="0.5"/>
+                                    <fx:dragSource action="copy" param="MyFaces" />
 		                            <h:outputText value="DRAG ME"/>
 		                        </hx:div>
 		                    </td>
 		                    <td>
-		                        <hx:div id="dropZone01" styleClass="dropZone"
-		                            ondragenter="document.getElementById('dropZone01').className='dropZone dragEntered';"
-		                            ondragleave="document.getElementById('dropZone01').className='dropZone';"
-		                            >
-		                            <fx:dropTarget dropListener="#{dndBean.processSimpleDnd}" 
+		                        <hx:div id="dropZone01" styleClass="dropZone">
+                                    <fx:effects event="dragenter" additionalStyleClassToActivate="dragEntered" duration="0.5"/>
+                                    <fx:dropTarget dropListener="#{dndBean.processSimpleDnd}"
 		                                rerender="simpleDndOutput"/>
 		                            <div style="padding-top:45%; text-align: center;">
 		                                <h:outputText value="DROP HERE" />

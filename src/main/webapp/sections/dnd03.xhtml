@@ -12,7 +12,9 @@
                   .dropZone03{text-align: center; color:green; font-size:17px; }
 		          .dropZone03 { float: right; border: 2px dashed gray;}
 		          .dropZone03 { min-width: 210px; min-height: 220px; float: none;}
-		          .dragEntered { border: 4px dashed green; background-color: #88FF00;}
+
+                  .dragStarted { border: 2px solid yellow;}
+                  .dragEntered { border: 4px dashed green; background-color: #88FF00;}
 		          
 		          .team { 
 		              width: 200px; 
@@ -37,11 +39,13 @@
 	                <table width="100%">
 	                    <tr>
 	                        <td align="left">
-	                              <hx:div id="teamDropZone" styleClass="dropZone03"
-	                                    ondragenter="document.getElementById('teamDropZone').className='dropZone03 dragEntered';"
-	                                    ondragleave="document.getElementById('teamDropZone').className='dropZone03';">
+	                              <hx:div id="teamDropZone" styleClass="dropZone03">
+                                      <fx:effects event="dragenter" additionalStyleClassToActivate="dragEntered" duration="0.5"/>
+                                      <fx:animations event="drop" duration="1s" iteration="5">
+                                          <fx:animationShake rotation="15" />
+                                      </fx:animations>
 	                                  <fx:dropTarget dropListener="#{dndBean.processTeamDrop}" rerender="dynamicDnDContainer" types="F,B"/>
-	                                  
+
 	                                  <div style="padding:5px; text-align: center;">
 	                                      <h:outputText value="All Teams" />
 	                                  </div>
@@ -49,6 +53,7 @@
 	                                  <h:dataTable value="#{dndBean.teams}" var="team">
 	                                      <h:column>
 	                                          <hx:div styleClass="team">
+                                                  <fx:effects event="dragstart" additionalStyleClassToActivate="dragStarted" duration="0.5"/>
 	                                              <fx:dragSource action="move" param="#{team.id}" dropTargetTypes="#{team.type.code}" />
 	                                              <img src="#{request.contextPath}/resources/image/team/#{team.id}.png" draggable="false" />
 	                                              <h:outputText value="#{team.name}" draggable="false"/>
@@ -58,10 +63,12 @@
 	                              </hx:div>
 	                        </td>
 	                        <td align="center">
-	                            <hx:div id="basketballTeamDropZone" styleClass="dropZone03"
-	                                    ondragenter="document.getElementById('basketballTeamDropZone').className='dropZone03 dragEntered';"
-	                                    ondragleave="document.getElementById('basketballTeamDropZone').className='dropZone03';">
-	                                 <fx:dropTarget dropListener="#{dndBean.processBasketballTeamDrop}" rerender="dynamicDnDContainer" types="B"/>
+	                            <hx:div id="basketballTeamDropZone" styleClass="dropZone03">
+                                     <fx:effects event="dragenter" additionalStyleClassToActivate="dragEntered" duration="0.5"/>
+	                                 <fx:animations event="drop" duration="1s" iteration="5">
+                                          <fx:animationShake rotation="15" />
+                                      </fx:animations>
+                                     <fx:dropTarget dropListener="#{dndBean.processBasketballTeamDrop}" rerender="dynamicDnDContainer" types="B"/>
 	                                    
 	                                 <div style="padding:5px; text-align: center;">
 	                                    <h:outputText value="Basketball Teams" />
@@ -70,7 +77,8 @@
 	                                 <h:dataTable value="#{dndBean.basketballTeams}" var="team">
 	                                      <h:column>
 	                                          <hx:div styleClass="team">
-	                                              <fx:dragSource action="move" param="#{team.id}" dropTargetTypes="#{team.type.code}" />
+                                                  <fx:effects event="dragstart" additionalStyleClassToActivate="dragStarted" duration="0.5"/>
+                                                  <fx:dragSource action="move" param="#{team.id}" dropTargetTypes="#{team.type.code}" />
 	                                              <img src="#{request.contextPath}/resources/image/team/#{team.id}.png" draggable="false" />
 	                                              <h:outputText value="#{team.name}" draggable="false"/>
 	                                          </hx:div>
@@ -79,9 +87,11 @@
 	                             </hx:div>
 	                         </td>
 	                        <td align="right">
-	                              <hx:div id="footballTeamDropZone" styleClass="dropZone03"
-	                                     ondragenter="document.getElementById('footballTeamDropZone').className='dropZone03 dragEntered';"
-	                                     ondragleave="document.getElementById('footballTeamDropZone').className='dropZone03';">
+	                              <hx:div id="footballTeamDropZone" styleClass="dropZone03">
+                                      <fx:effects event="dragenter" additionalStyleClassToActivate="dragEntered" duration="0.5"/>
+                                      <fx:animations event="drop" duration="1s" iteration="5">
+                                          <fx:animationShake rotation="15" />
+                                      </fx:animations>
 	                                  <fx:dropTarget dropListener="#{dndBean.processFootballTeamDrop}" rerender="dynamicDnDContainer" types="F"/>
 	                              
 	                                  <div style="padding:5px; text-align: center;">
@@ -91,6 +101,7 @@
 	                                 <h:dataTable value="#{dndBean.footballTeams}" var="team">
 	                                      <h:column>
 	                                          <hx:div styleClass="team">
+                                                  <fx:effects event="dragstart" additionalStyleClassToActivate="dragStarted" duration="0.5"/>
 	                                              <fx:dragSource action="move" param="#{team.id}" dropTargetTypes="#{team.type.code}" />
 	                                              <img src="#{request.contextPath}/resources/image/team/#{team.id}.png" draggable="false" />
 	                                              <h:outputText value="#{team.name}" draggable="false"/>
