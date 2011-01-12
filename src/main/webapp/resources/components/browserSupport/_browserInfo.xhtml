@@ -1,0 +1,104 @@
+<!--
+  ~ Licensed to the Apache Software Foundation (ASF) under one
+  ~ or more contributor license agreements.  See the NOTICE file
+  ~ distributed with this work for additional information
+  ~ regarding copyright ownership.  The ASF licenses this file
+  ~ to you under the Apache License, Version 2.0 (the
+  ~ "License"); you may not use this file except in compliance
+  ~ with the License.  You may obtain a copy of the License at
+  ~
+  ~   http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing,
+  ~ software distributed under the License is distributed on an
+  ~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  ~ KIND, either express or implied.  See the License for the
+  ~ specific language governing permissions and limitations
+  ~ under the License.
+  -->
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:hx="http://myfaces.apache.org/html5/html"
+      xmlns:fx="http://myfaces.apache.org/html5/core">
+
+<composite:interface>
+    <composite:facet name="content" required="false"/>
+    <composite:attribute name="facetName" required="true" />
+    <composite:attribute name="iconName" required="true" />
+    <composite:attribute name="unsupportedMessage" required="false" default="This feature is not supported by this browser." />
+    <composite:attribute name="style" required="false" />
+</composite:interface>
+
+
+<composite:implementation>
+    <h:outputStylesheet target="head" id="browserSupportStyle">
+        .expandedBrowserSupportInfo{
+            height:300px !important;
+            width:400px !important;
+            overflow:visible;
+            z-index:100;
+
+            padding:10px;
+            background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(white));
+            background: -moz-linear-gradient(-90deg, #EEEEEE, white);
+            box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
+            -webkit-box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
+            -moz-box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
+            border-radius: 10px;
+            -moz-border-radius: 10px;
+        }
+
+        div.browserSupportInfo div.browserInfoContent{
+            opacity:0.0;
+        }
+
+        div.expandedBrowserSupportInfo div.browserInfoContent{
+            opacity:1.0;
+        }
+
+        .browserSupportInfo{
+            height:24px;
+            width:16px;
+            overflow:hidden;
+            z-index:99;
+
+            font-size:0.8em;
+            position:absolute;
+            top: 40px;
+            right:100px;
+            text-align: left;
+        }
+
+        .supportedBrowserIcon{
+            opacity:1;
+        }
+
+        .unSupportedBrowserIcon{
+            opacity:0.1;
+        }
+
+    </h:outputStylesheet>
+
+    <hx:div styleClass="browserSupportInfo" style="#{cc.attrs.style}">
+        <fx:effects additionalStyleClassToActivate="expandedBrowserSupportInfo"
+                    event="mouseover" deactivationEvents="mouseout" duration="1s"/>
+
+        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(empty cc.facets[cc.attrs.facetName]) ? 'unSupportedBrowserIcon' : 'supportedBrowserIcon'}" />
+        <br/>
+        <hx:div styleClass="browserInfoContent">
+            <h:panelGroup rendered="#{not empty cc.facets[cc.attrs.facetName]}">
+                <composite:renderFacet name="#{cc.attrs.facetName}" />
+            </h:panelGroup>
+            <h:outputText value="#{cc.attrs.unsupportedMessage}" rendered="#{empty cc.facets[cc.attrs.facetName]}" />
+
+            <fx:effects delay="0.9s"/>
+        </hx:div>
+    </hx:div>
+
+</composite:implementation>
+</html>

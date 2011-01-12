@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <ui:composition xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
@@ -8,9 +7,18 @@
       <div class="slide">
            <section>
                <header>
-                   <h2>
-                        <ui:insert name="title" />
-                   </h2>
+                   <table>
+                       <tr>
+                           <td width="90%">
+                               <h2>
+                                    <ui:insert name="title" />
+                               </h2>
+                           </td>
+                           <td>
+                               <ui:insert name="browserSupport"/>
+                           </td>
+                       </tr>
+                   </table>
                </header>
                
                <ui:insert name="content" />

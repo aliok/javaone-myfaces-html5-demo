@@ -5,22 +5,29 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
-      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
       
       
       <ui:decorate template="/slideDecorator.xhtml">
           <ui:define name="title">
               Drag and Drop
           </ui:define>
+
+          <ui:define name="browserSupport">
+              <bs:browserSupport>
+                  <f:facet name="webkit">
+                      Does not work in Chrome because of <a href="http://code.google.com/p/chromium/issues/detail?id=50009" style="text-decoration: underline;">Chromium Issue-50009</a>
+                  </f:facet>
+                  <f:facet name="firefox">
+                      Works best in Firefox.
+                  </f:facet>
+              </bs:browserSupport>
+          </ui:define>
     
           <ui:define name="content">
             <ui:include src="/sections/dnd03.xhtml" />
           </ui:define>
           
-          <ui:define name="footer">
-              Works best in Firefox<br/>
-              Does not work in Chrome because of <a href="http://code.google.com/p/chromium/issues/detail?id=50009" style="text-decoration: underline;">Chromium Issue-50009</a>
-          </ui:define>
-      
       </ui:decorate>
 </ui:composition>
