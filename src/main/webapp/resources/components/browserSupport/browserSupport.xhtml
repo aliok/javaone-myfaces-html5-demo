@@ -25,32 +25,36 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core">
 
-<composite:interface>
+<composite:interface shortDescription="If a facet is defined, but support attr is false, then its icon will be shown with red border.">
     <composite:facet name="webkit" />
-    <composite:facet name="ie" />
     <composite:facet name="mozilla" />
     <composite:facet name="opera" />
+    <composite:facet name="ie" />
+    <composite:attribute name="webkitSupport" type="java.lang.Boolean" default="#{not empty cc.facets.webkit}" />
+    <composite:attribute name="mozillaSupport" type="java.lang.Boolean" default="#{not empty cc.facets.mozilla}" />
+    <composite:attribute name="operaSupport" type="java.lang.Boolean" default="#{not empty cc.facets.opera}" />
+    <composite:attribute name="ieSupport" type="java.lang.Boolean" default="#{not empty cc.facets.ie}" />
 </composite:interface>
 
 
 <composite:implementation>
 
-    <bs:_browserInfo iconName="webkit.ico" facetName="webkit"
+    <bs:_browserInfo iconName="webkit.ico" facetName="webkit" support="#{cc.attrs.webkitSupport}"
                      unsupportedMessage="This feature is not supported by Webkit browsers(Chrome and Safari)." style="right:115px;">
         <composite:insertFacet name="webkit" />
     </bs:_browserInfo>
 
-    <bs:_browserInfo iconName="mozilla.ico" facetName="mozilla"
+    <bs:_browserInfo iconName="mozilla.ico" facetName="mozilla" support="#{cc.attrs.mozillaSupport}"
                      unsupportedMessage="This feature is not supported by Mozilla browsers." style="right:90px;">
         <composite:insertFacet name="mozilla" />
     </bs:_browserInfo>
 
-    <bs:_browserInfo iconName="opera.ico" facetName="opera"
+    <bs:_browserInfo iconName="opera.ico" facetName="opera" support="#{cc.attrs.operaSupport}"
                      unsupportedMessage="This feature is not supported by Opera." style="right:65px;">
         <composite:insertFacet name="opera" />
     </bs:_browserInfo>
 
-    <bs:_browserInfo iconName="iewin.gif"   facetName="ie" 
+    <bs:_browserInfo iconName="iewin.gif"   facetName="ie" support="#{cc.attrs.ieSupport}"
                      unsupportedMessage="This feature is not supported by Internet Explorer." style="right:40px;">
         <composite:insertFacet name="ie" />
     </bs:_browserInfo>

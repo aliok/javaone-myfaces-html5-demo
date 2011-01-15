@@ -32,6 +32,7 @@
     <composite:attribute name="iconName" required="true" />
     <composite:attribute name="unsupportedMessage" required="false" default="This feature is not supported by this browser." />
     <composite:attribute name="style" required="false" />
+    <composite:attribute name="support" required="true" type="java.lang.Boolean" />
 </composite:interface>
 
 
@@ -63,7 +64,7 @@
 
         .browserSupportInfo{
             height:24px;
-            width:16px;
+            width:24px;
             overflow:hidden;
             z-index:99;
 
@@ -75,11 +76,17 @@
         }
 
         .supportedBrowserIcon{
+            border : 2px solid green;
             opacity:1;
         }
 
         .unSupportedBrowserIcon{
             opacity:0.1;
+        }
+
+        .emphasizedBrowserIcon{
+            opacity:0.5;
+            border : 2px solid red;
         }
 
     </h:outputStylesheet>
@@ -88,7 +95,7 @@
         <fx:effects additionalStyleClassToActivate="expandedBrowserSupportInfo"
                     event="mouseover" deactivationEvents="mouseout" duration="1s"/>
 
-        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(empty cc.facets[cc.attrs.facetName]) ? 'unSupportedBrowserIcon' : 'supportedBrowserIcon'}" />
+        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(empty cc.facets[cc.attrs.facetName]) ? 'unSupportedBrowserIcon' : ( (not cc.attrs.support) ? 'emphasizedBrowserIcon' : 'supportedBrowserIcon')}" />
         <br/>
         <hx:div styleClass="browserInfoContent">
             <h:panelGroup rendered="#{not empty cc.facets[cc.attrs.facetName]}">
