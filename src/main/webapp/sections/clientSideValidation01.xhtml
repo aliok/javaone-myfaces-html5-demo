@@ -25,25 +25,25 @@
                  <f:validateRegex pattern="[0-9]{2}[A-Z]{2}" />
               </hx:inputText>
               <h:message for="it01" style="font-size:9px;" />
-              <sh:shPre>
-                 &lt;hx:inputText ... required=&quot;true&quot;&gt;
-                        &lt;f:validateRegex pattern=&quot;[0-9]{2}[A-Z]{2}&quot; /&gt;
-                     &lt;/hx:inputText&gt;
-              </sh:shPre>
+              <sh:sh><![CDATA[
+<hx:inputText ... required="true">
+    <f:validateRegex pattern="|0-9|{2}|A-Z|{2}">
+</hx:inputText>
+              ]]></sh:sh>
            
               <h:outputLabel for="it02" value="URL"/>
               <hx:inputText id="it02" type="url" value="#{clientSideValidationBean.param02}" cols="20"/>
               <h:message for="it02" />
-              <sh:shPre>
-                  &lt;hx:inputText type=&quot;url&quot; .../&gt;
-              </sh:shPre>
+              <sh:sh><![CDATA[
+<hx:inputText type="url" .../>
+              ]]></sh:sh>
               
               <h:outputLabel for="ie01" value="Email"/>
               <hx:inputEmail id="ie01" value="#{clientSideValidationBean.email01}" placeholder="Type your email" />
               <h:message for="ie01" />
-              <sh:shPre>
-                  &lt;hx:inputEmail .../&gt;
-              </sh:shPre>
+              <sh:sh><![CDATA[
+<hx:inputEmail .../>
+              ]]></sh:sh>
               
               <h:outputLabel for="ins01" value="Range min-max driven by standard JSF validator"/>
               <h:panelGroup>
@@ -54,11 +54,11 @@
                   <span id="sliderValue">60</span>
               </h:panelGroup>
               <h:message for="ins01" />
-              <sh:shPre>
-                  &lt;hx:inputNumberSlider step=&quot;5&quot; ...&gt;
-                         &lt;f:validateLongRange minimum=&quot;30&quot; maximum=&quot;90&quot; /&gt;
-                     &lt;/hx:inputNumberSlider&gt;
-              </sh:shPre>
+              <sh:sh><![CDATA[
+<hx:inputNumberSlider step="5" ...>
+    <f:validateLongRange minimum="30" maximum="90" />
+</hx:inputNumberSlider>
+              ]]></sh:sh>
               
               <h:outputLabel for="ins02" value="Number min-max driven by standard JSF validator"/>
               <hx:inputNumberSpinner id="ins02" value="#{clientSideValidationBean.number02}" segmentCount="10">
@@ -66,11 +66,11 @@
                   <f:validateLongRange minimum="0" maximum="50" />
               </hx:inputNumberSpinner>
               <h:message for="ins02" />
-              <sh:shPre>
-                  &lt;hx:inputNumberSpinner segmentCount=&quot;10&quot; ...&gt;
-                         &lt;f:validateLongRange minimum=&quot;0&quot; maximum=&quot;50&quot; /&gt;
-                     &lt;/hx:inputNumberSpinner&gt;
-              </sh:shPre>
+              <sh:sh><![CDATA[
+<hx:inputNumberSpinner segmentCount="10" ...>
+    <f:validateLongRange minimum="0" maximum="50" />
+</hx:inputNumberSpinner>
+              ]]></sh:sh>
               
               <h:outputText />
               <input type="button" value="Try Submitting" 
@@ -79,9 +79,6 @@
               <h:outputText />
                              
           </h:panelGrid>
-          <script>
-         SyntaxHighlighter.highlight();
-    </script>
   </h:form>
               
 </ui:composition>

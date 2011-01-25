@@ -84,8 +84,15 @@
         -moz-box-shadow: rgba(204, 204, 204, 0.8) -3px 7px 9px;
     }
     
-    .syntaxhighlighter table td.code {
-        font-size: 12px !important;
+    pre.prettyprint{
+        font-size: small !important;
+        font-family: Consolas, 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+        background-color: #EEEEEE !important;
+        padding-right: 5px;
+    }
+
+    pre.prettyprint ol{
+        padding-left: 5% !important;
     }
     
     .infoSlide{

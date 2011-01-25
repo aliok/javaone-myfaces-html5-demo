@@ -65,19 +65,19 @@
 	                <tr>
 	                   <td colspan="3">
                             <sh:sh><![CDATA[
-                                <hx:div ...>
-                                    <fx:dropTarget acceptMimeTypes="text/x-myfaces-html5-dnd-source, text/plain, text/uri-list" 
-                                        dropListener="#_{dndBean.processDragAnything}" rerender="dragAnythingOutput"/> ...
-                                    </div>
-                                </hx:div>
+<hx:div ...>
+    <fx:dropTarget acceptMimeTypes="text/x-myfaces-html5-dnd-source, text/plain, text/uri-list"
+        dropListener="#_{dndBean.processDragAnything}" rerender="dragAnythingOutput"/> ...
+    </div>
+</hx:div>
                            ]]></sh:sh>
                            <sh:sh lang="java"><![CDATA[
-                               public void processDragAnything(DropEvent event) throws AbortProcessingException{
-                                    String param = event.getParam();
-                                    Map<String, String> dropDataMap = event.getDropDataMap();
-                                    String text = dropDataMap.get("text/plain");
-                                    ...
-                                }
+public void processDragAnything(DropEvent event) throws AbortProcessingException{
+    String param = event.getParam();
+    Map<String, String> dropDataMap = event.getDropDataMap();
+    String text = dropDataMap.get("text/plain");
+    ...
+}
                            ]]></sh:sh>
                         </td>
 	                </tr>

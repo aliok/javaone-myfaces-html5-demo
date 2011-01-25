@@ -11,23 +11,17 @@
     </ui:insert>
 	<title>MyFaces Html5 JavaOne Demo</title>
 	
-	<!-- SyntaxHighlighter stuff  -->
-	<script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shCore.js"></script>
-	<script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushXml.js"></script>
-	<script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushJava.js"></script>
-	<script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-	<script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushCss.js"></script>
-	<link href="#{request.contextPath}/resources/script/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
-    <link href="#{request.contextPath}/resources/script/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
-    
-    <script type="text/javascript" src="#{request.contextPath}/resources/script/demo/common.js"></script>
-    
-    <link href="#{request.contextPath}/resources/style/text.css" rel="stylesheet" type="text/css" />
-    <link href="#{request.contextPath}/resources/style/animation.css" rel="stylesheet" type="text/css" />
-    <link href="#{request.contextPath}/resources/style/box.css" rel="stylesheet" type="text/css" />
-    <link href="#{request.contextPath}/resources/style/common.css" rel="stylesheet" type="text/css" />
-    
-    <script type="text/javascript" src="#{request.contextPath}/javax.faces.resource/jsf.js.jsf?ln=javax.faces&amp;stage=Development"></script>
+    <h:outputStylesheet library="script/google-code-prettify" name="prettify.css" />
+    <h:outputScript library="script/google-code-prettify" name="prettify.js" />
+
+    <h:outputScript library="script/demo" name="common.js" />
+
+    <h:outputStylesheet library="style" name="text.css" />
+    <h:outputStylesheet library="style" name="animation.css" />
+    <h:outputStylesheet library="style" name="box.css" />
+    <h:outputStylesheet library="style" name="common.css" />
+
+    <h:outputScript library="javax.faces" name="jsf.js" />
 
     <style>
     
@@ -173,7 +167,8 @@
     </div>
     
     <script type="text/javascript">
-	     SyntaxHighlighter.all()
+        removeCDataAndTrim();
+        prettyPrint();
 	</script>
 	
 </h:body>

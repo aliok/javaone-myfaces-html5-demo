@@ -25,22 +25,20 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 	<h:head>
-	    <!-- SyntaxHighlighter stuff  -->
-	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shCore.js"></script>
-	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushXml.js"></script>
-	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushJava.js"></script>
-	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushJScript.js"></script>
-	    <script type="text/javascript" src="#{request.contextPath}/resources/script/syntaxhighlighter/scripts/shBrushCss.js"></script>
-	    <link href="#{request.contextPath}/resources/script/syntaxhighlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
-	    <link href="#{request.contextPath}/resources/script/syntaxhighlighter/styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
 
-        <script type="text/javascript" src="#{request.contextPath}/resources/script/demo/common.js"></script>
-    
-	    <link href="#{request.contextPath}/resources/style/text.css" rel="stylesheet" type="text/css" />
-	    <link href="#{request.contextPath}/resources/style/animation.css" rel="stylesheet" type="text/css" />
-	    <link href="#{request.contextPath}/resources/style/box.css" rel="stylesheet" type="text/css" />
-	    <link href="#{request.contextPath}/resources/style/common.css" rel="stylesheet" type="text/css" />
-	    <link href="#{request.contextPath}/resources/style/slides.css" rel="stylesheet" type="text/css" />    
+        <h:outputStylesheet library="script/google-code-prettify" name="prettify.css" />
+        <h:outputScript library="script/google-code-prettify" name="prettify.js" />
+
+        <h:outputScript library="script/demo" name="common.js" />
+
+        <h:outputStylesheet library="style" name="text.css" />
+        <h:outputStylesheet library="style" name="animation.css" />
+        <h:outputStylesheet library="style" name="box.css" />
+        <h:outputStylesheet library="style" name="common.css" />
+
+        <h:outputScript library="javax.faces" name="jsf.js" />
+
+        <h:outputStylesheet library="style" name="slides.css" />
 
 	    <meta charset="utf-8" /> 
 	    <title>HTML5 presentation</title> 
@@ -71,7 +69,8 @@
  
     <script type="text/javascript" src="#{request.contextPath}/resources/script/demo/slides.js"></script>
     <script>
-         SyntaxHighlighter.all();
+        removeCDataAndTrim();
+        prettyPrint();
     </script>
   </h:body> 
 </html>

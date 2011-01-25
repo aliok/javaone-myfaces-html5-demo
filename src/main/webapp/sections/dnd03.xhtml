@@ -28,8 +28,8 @@
 		              width: 35px;
 		          }
 		          
-		          #dynamicDndCodeTable .syntaxhighlighter table td.code {
-				        font-size: 11px !important;
+		          #dynamicDndCodeTable pre.prettyprint {
+				        font-size: 10px !important;
 				  }
 		          
 	          </h:outputStylesheet>
@@ -129,46 +129,46 @@
                 <tr>
                     <td>
 		               <sh:sh><![CDATA[
-		                      <h:dataTable value="#_{dndBean.teams}" var="team">
-		                           <h:column>
-		                               <hx:div ...>
-		                                   <fx:dragSource param="#_{team.id}" dropTargetTypes="#_{team.type.code}" />
-		                                   ...
-		                               </hx:div>
-		                           </h:column>
-		                       </h:dataTable>
-		                       ...
-		                       <hx:div id="basketballTeamDropZone" ...>
-		                           <fx:dropTarget dropListener="#_{dndBean.processBasketballTeamDrop}" 
-		                              rerender="@form" types="B"/>...
-		                           <!-- List dropped basketball teams into this target -->
-		                           <h:dataTable value="#_{dndBean.basketballTeams}" var="team">
-		                                <h:column>
-		                                    <hx:div styleClass="team">...
-		                                        <h:outputText value="#_{team.name}" .../>
-		                                    </hx:div>
-		                                </h:column>
-		                           </h:dataTable>
-		                       </hx:div>
+<h:dataTable value="#_{dndBean.teams}" var="team">
+   <h:column>
+       <hx:div ...>
+           <fx:dragSource param="#_{team.id}" dropTargetTypes="#_{team.type.code}" />
+           ...
+       </hx:div>
+   </h:column>
+</h:dataTable>
+...
+<hx:div id="basketballTeamDropZone" ...>
+   <fx:dropTarget dropListener="#_{dndBean.processBasketballTeamDrop}"
+      rerender="@form" types="B"/>...
+   <!-- List dropped basketball teams into this target -->
+   <h:dataTable value="#_{dndBean.basketballTeams}" var="team">
+        <h:column>
+            <hx:div styleClass="team">...
+                <h:outputText value="#_{team.name}" .../>
+            </hx:div>
+        </h:column>
+   </h:dataTable>
+</hx:div>
 		                 ]]></sh:sh>
 	                 </td>
                     <td>
                      <sh:sh><![CDATA[
-                           <hx:div id="footbalTeamDropZone" ...>...
-                               <fx:dropTarget ... types="F"/>
-                           </hx:div>
+<hx:div id="footbalTeamDropZone" ...>...
+   <fx:dropTarget ... types="F"/>
+</hx:div>
                      ]]></sh:sh>
 	                 <sh:sh lang="java"><![CDATA[
-	                     public void processBasketballTeamDrop(DropEvent event) 
-	                       throws AbortProcessingException{
-	                          String teamId = event.getParam();
-	                          ...
-	                          SportsTeam droppedTeam = getTeam(
-	                             this.basketballTeamsList, teamId);
-	                          ...
-	                          teams.remove(droppedTeam);
-	                          basketballTeams.add(droppedTeam);
-	                     }
+public void processBasketballTeamDrop(DropEvent event)
+  throws AbortProcessingException{
+  String teamId = event.getParam();
+  ...
+  SportsTeam droppedTeam = getTeam(
+     this.basketballTeamsList, teamId);
+  ...
+  teams.remove(droppedTeam);
+  basketballTeams.add(droppedTeam);
+}
 	                 ]]></sh:sh>
                     </td>
                    </tr>

@@ -5,17 +5,15 @@
 
 <composite:interface>
     <composite:attribute name="lang" default="xml"/>
-    <composite:attribute name="gutter" default="false"/>
+    <composite:attribute name="linenums" default="false"/>
 </composite:interface>
 
 
 <composite:implementation>
-    <h:outputStylesheet target="head">
+    <h:outputStylesheet target="head" id="demoCodeStyle">
         .demoCode { font-size: smaller !important; overflow:hidden !important; }
     </h:outputStylesheet>
     
-	<script type="syntaxhighlighter" class="brush: #{cc.attrs.lang};  gutter: #{cc.attrs.gutter}; toolbar: false; class-name: 'demoCode codeBox'">
-        <composite:insertChildren />
-	</script>
+	<pre class="prettyprint lang-#{cc.attrs.lang} #{(cc.attrs.linenums) ? 'linenums:1' : ''} demoCode codeBox"><composite:insertChildren /></pre>
 </composite:implementation>
 </html>

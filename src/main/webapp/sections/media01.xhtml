@@ -35,16 +35,16 @@
 	                <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_h264.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
 	            </hx:video>
 	            <sh:sh><![CDATA[
-	                <hx:video ...>
-	                    <f:facet name="fallback">
-	                      <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" ...>
-	                      ...
-	                      </object>  
-	                    </f:facet>
-	                    ....
-	                    <fx:mediaSource src="... mother_goose_ogg.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
-	                    <fx:mediaSource src="... mother_goose_ogg.ogv" contentType="video/ogg" codec="theo, vorb"/>
-	                </hx:video>
+<hx:video ...>
+    <f:facet name="fallback">
+      <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" ...>
+      ...
+      </object>
+    </f:facet>
+    ....
+    <fx:mediaSource src="... mother_goose_ogg.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+    <fx:mediaSource src="... mother_goose_ogg.ogv" contentType="video/ogg" codec="theo, vorb"/>
+</hx:video>
 	            ]]></sh:sh>
 	          </h:panelGrid>
 </ui:composition>

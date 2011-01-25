@@ -30,7 +30,11 @@
 		               -moz-box-shadow: 5px 44px 28px #333;
 		               
 		               -webkit-box-reflect: below 1px -webkit-gradient(linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25))) 0 0 0 0 stretch stretch;
-		             }  
+		             }
+
+                   #media02Code pre.prettyprint {
+				        font-size: 10px !important;
+				  }
               </h:outputStylesheet>
               
               <h:panelGrid columns="1">
@@ -58,25 +62,25 @@
 	                    </h:panelGroup>
 	                </h:panelGrid>
 	            </h:panelGroup>
-	            <h:panelGroup>
+	            <h:panelGroup id="media02Code">
 	                <sh:sh><![CDATA[
-	                    <hx:video id="motherGooseVideo" showControls="false" poster="... mother_goose_thumbnail_small.png"
-	                        onmouseover="this.play();" onmouseout="this.pause();">
-	                        <fx:effects event="mouseover" additionalStyleClassToActivate="styledVideo" duration="1s">
-                                <fx:effectTransform translateX="100" translateY="30" scaleX="1.3" rotate="385deg" />
-                            </fx:effects>
-	                        <fx:mediaSource src="... mother_goose_ogg.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
-	                    </hx:video>
-	                    <button onclick="document.getElementById('motherGooseVideo').play();">Play</button>
-	                    <button onclick="document.getElementById('motherGooseVideo').pause();">Pause</button>
+<hx:video id="motherGooseVideo" showControls="false" poster="... mother_goose_thumbnail_small.png"
+    onmouseover="this.play();" onmouseout="this.pause();">
+    <fx:effects event="mouseover" additionalStyleClassToActivate="styledVideo" duration="1s">
+        <fx:effectTransform translateX="100" translateY="30" scaleX="1.3" rotate="385deg" />
+    </fx:effects>
+    <fx:mediaSource src="... mother_goose_ogg.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+</hx:video>
+<button onclick="document.getElementById('motherGooseVideo').play();">Play</button>
+<button onclick="document.getElementById('motherGooseVideo').pause();">Pause</button>
 	                ]]></sh:sh>
 	                <sh:sh lang="css"><![CDATA[
-	                    .styledVideo{
-	                        box-shadow: 5px 44px 28px #333;
-	                        box-reflect: below 1px -webkit-gradient
-	                           (linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25)))
-	                           0 0 0 0 stretch stretch;
-	                    }  
+.styledVideo{
+    box-shadow: 5px 44px 28px #333;
+    box-reflect: below 1px -webkit-gradient
+       (linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25)))
+       0 0 0 0 stretch stretch;
+}  
 	                ]]></sh:sh>
 	            </h:panelGroup>
               </h:panelGrid>
