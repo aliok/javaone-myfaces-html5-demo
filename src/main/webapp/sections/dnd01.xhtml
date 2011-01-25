@@ -1,4 +1,4 @@
-<ui:composition
+<ui:composition template="sectionTemplate.xhtml"
       xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:f="http://java.sun.com/jsf/core" 
       xmlns:h="http://java.sun.com/jsf/html"
@@ -6,7 +6,8 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
-      
+
+<ui:define name="sectionContent">
       
               <h:outputStylesheet id="dnd01Style" target="head"> 
 		          .dropZone, .dropZone02, .dropZone03, .dragSource01, .dragSource02 {text-align: center; color:green; font-size:30px; }
@@ -73,4 +74,6 @@ public void processSimpleDnd(DropEvent event) throws AbortProcessingException{
 		                </tr>
 		            </table>
 	            </h:form>
+
+</ui:define>
 </ui:composition>

@@ -1,4 +1,4 @@
-<ui:composition
+<ui:composition template="sectionTemplate.xhtml"
       xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:f="http://java.sun.com/jsf/core" 
       xmlns:h="http://java.sun.com/jsf/html"
@@ -6,7 +6,8 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
-      
+
+<ui:define name="sectionContent">
       
               <h:panelGrid columns="4">
 	               
@@ -70,5 +71,6 @@
 <hx:inputNumberSpinner segmentCount="20" ... />
 	               ]]></sh:sh>
 	
-             </h:panelGrid>                
+             </h:panelGrid>
+</ui:define>
 </ui:composition>

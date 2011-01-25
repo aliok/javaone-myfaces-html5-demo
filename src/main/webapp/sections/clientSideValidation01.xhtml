@@ -1,4 +1,4 @@
-<ui:composition
+<ui:composition template="sectionTemplate.xhtml"
       xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:f="http://java.sun.com/jsf/core" 
       xmlns:h="http://java.sun.com/jsf/html"
@@ -7,6 +7,7 @@
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
     
+<ui:define name="sectionContent">
     <script>
            function updateSliderValue(element){
                document.getElementById('sliderValue').innerHTML = element.valueAsNumber;
@@ -16,11 +17,11 @@
                  alert('Request sent and respose recieved.');
            }
     </script>
-    
+
     <h:form id="clientSideValidationForm01">
           <h:panelGrid columns="4">
               <h:outputLabel for="it01" value="Promo code" alt="Has pattern and required"/>
-              <hx:inputText id="it01" value="#{clientSideValidationBean.param01}" placeholder="Enter a promo code" cols="20" 
+              <hx:inputText id="it01" value="#{clientSideValidationBean.param01}" placeholder="Enter a promo code" cols="20"
                      alt="A promo code consists of 2 digits followed by 2 upper-case characters" required="true">
                  <f:validateRegex pattern="[0-9]{2}[A-Z]{2}" />
               </hx:inputText>
@@ -30,21 +31,21 @@
     <f:validateRegex pattern="|0-9|{2}|A-Z|{2}">
 </hx:inputText>
               ]]></sh:sh>
-           
+
               <h:outputLabel for="it02" value="URL"/>
               <hx:inputText id="it02" type="url" value="#{clientSideValidationBean.param02}" cols="20"/>
               <h:message for="it02" />
               <sh:sh><![CDATA[
 <hx:inputText type="url" .../>
               ]]></sh:sh>
-              
+
               <h:outputLabel for="ie01" value="Email"/>
               <hx:inputEmail id="ie01" value="#{clientSideValidationBean.email01}" placeholder="Type your email" />
               <h:message for="ie01" />
               <sh:sh><![CDATA[
 <hx:inputEmail .../>
               ]]></sh:sh>
-              
+
               <h:outputLabel for="ins01" value="Range min-max driven by standard JSF validator"/>
               <h:panelGroup>
                   <hx:inputNumberSlider id="ins01" value="#{clientSideValidationBean.number01}" step="5" onchange="updateSliderValue(this);">
@@ -59,7 +60,7 @@
     <f:validateLongRange minimum="30" maximum="90" />
 </hx:inputNumberSlider>
               ]]></sh:sh>
-              
+
               <h:outputLabel for="ins02" value="Number min-max driven by standard JSF validator"/>
               <hx:inputNumberSpinner id="ins02" value="#{clientSideValidationBean.number02}" segmentCount="10">
                   <f:convertNumber />
@@ -71,14 +72,14 @@
     <f:validateLongRange minimum="0" maximum="50" />
 </hx:inputNumberSpinner>
               ]]></sh:sh>
-              
+
               <h:outputText />
-              <input type="button" value="Try Submitting" 
+              <input type="button" value="Try Submitting"
                  onclick="if(submitForm('clientSideValidationForm01')){jsf.ajax.request(this,event, {execute:'@form',render:'@form',onevent: handleEvent})};return false;"/>
               <h:outputText />
               <h:outputText />
-                             
+
           </h:panelGrid>
   </h:form>
-              
+</ui:define>
 </ui:composition>
