@@ -1,5 +1,9 @@
 @CHARSET "ISO-8859-1";
 
+    body{
+        font-family: 'Didact GothicMedium';
+    }
+
     input, a {
         -webkit-transition: all 0.5s ease-out; 
         -moz-transition: all 0.5s ease-out;
@@ -11,7 +15,7 @@
         border-radius: 5px;
         -moz-border-radius: 5px;
         
-        font-family: 'Heuristica-Bold';
+        font-family: 'Didact GothicMedium';
         font-size: 100%;
     }
     
@@ -33,7 +37,7 @@
 
         background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(white));
         background: -moz-linear-gradient(-90deg, #EEEEEE, white);
-        font-family: 'IMFeENsc29P';
+        font-family: 'Didact GothicMedium';
         font-size: large;
     }
     
@@ -83,6 +87,10 @@
         -webkit-box-shadow: rgba(204, 204, 204, 0.8) -3px 7px 9px;
         -moz-box-shadow: rgba(204, 204, 204, 0.8) -3px 7px 9px;
     }
+
+    h1, h2 {
+        font-family: 'Nova Font FamilyRegular';
+    }
     
     pre.prettyprint{
         font-size: small !important;
@@ -100,4 +108,8 @@
 		position: relative;
 		text-align: center;
 		top: 25%;
+    }
+
+    div.mf-slide {
+        padding-left : 1%;
     }

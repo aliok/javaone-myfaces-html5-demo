@@ -1,25 +1,27 @@
 @CHARSET "ISO-8859-1";
 
-	@font-face {
-      font-family: 'Heuristica-Bold';
-      font-style: normal;
-      font-weight: normal;
-      src: local('Heuristica-Bold'), url(/javaone-myfaces-html5-demo/resources/Heuristica-Bold.ttf) format('truetype');
-    }
-    
     @font-face {
-      font-family: 'IMFeENsc29P';
-      font-style: normal;
-      font-weight: normal;
-      src: local('IMFeENsc29P'), url(/javaone-myfaces-html5-demo/resources/IMFeENsc29P.ttf) format('truetype');
+      /* Medium */
+      font-family: "Didact GothicMedium";
+      src: local('Didact GothicMedium'), url( #{resource['style:DidactGothic.otf']} ) format('opentype');
+      font-weight:  500;
+      font-style:   normal;
+      font-variant: normal;
+      font-stretch: normal;
+    }
+
+    @font-face {
+      /* Regular */
+      font-family: "Nova Font FamilyRegular";
+      src: local('Nova Font FamilyRegular'), url( #{resource['style:NovaSquare.ttf']} ) format('truetype');  
+      font-weight:  400;
+      font-style:   normal;
+      font-variant: normal;
+      font-stretch: normal;
     }
     
-    .fontedText{
-        font-family: 'Heuristica-Bold';
-    }
-    
-    .fontedHeader{
-        font-family: 'IMFeENsc29P';
+    .fontedText, .fontedHeader{
+        font-family: 'Didact GothicMedium';
     }
     
     .reflectedText

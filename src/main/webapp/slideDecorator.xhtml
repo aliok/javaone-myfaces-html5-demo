@@ -4,29 +4,19 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core">
             
-      <div class="slide">
-           <section>
-               <header>
-                   <table>
-                       <tr>
-                           <td width="90%">
-                               <h2>
-                                    <ui:insert name="title" />
-                               </h2>
-                           </td>
-                           <td>
-                               <ui:insert name="browserSupport"/>
-                           </td>
-                       </tr>
-                   </table>
-               </header>
-               
-               <ui:insert name="content" />
-
-           </section>
-           <footer>
-               <ui:insert name="footer" />
-           </footer>
-       </div>
+           <table width="100%">
+               <tr>
+                   <td width="90%">
+                       <h2>
+                            <ui:insert name="title" />
+                       </h2>
+                   </td>
+                   <td>
+                       <ui:insert name="browserSupport"/>
+                   </td>
+               </tr>
+           </table>
+           <ui:insert name="content" />
+           <ui:insert name="footer" />
 
 </ui:composition>
