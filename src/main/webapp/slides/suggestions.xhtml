@@ -9,19 +9,7 @@
       xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
       
       
-      <ui:decorate template="/slideDecorator.xhtml">
-          <ui:define name="title">
-            Suggestions
-          </ui:define>
-
-          <ui:define name="browserSupport">
-              <bs:browserSupport>
-                  <f:facet name="opera">
-                      Works best in Opera. However dynamic update of suggestions is not working _properly_ because of a bug of Opera!
-                  </f:facet>
-              </bs:browserSupport>
-          </ui:define>
-    
+      <ui:decorate template="slideDecorator.xhtml">
           <ui:define name="content">
             <ui:include src="/sections/suggestions.xhtml" />
           </ui:define>

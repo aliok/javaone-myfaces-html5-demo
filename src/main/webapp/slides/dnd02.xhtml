@@ -9,22 +9,7 @@
       xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
       
       
-      <ui:decorate template="/slideDecorator.xhtml">
-          <ui:define name="title">
-              Drag and Drop
-          </ui:define>
-
-          <ui:define name="browserSupport">
-              <bs:browserSupport webkitSupport="false">
-                  <f:facet name="webkit">
-                      Does not work in Chrome because of <a href="http://code.google.com/p/chromium/issues/detail?id=50009" style="text-decoration: underline;">Chromium Issue-50009</a>
-                  </f:facet>
-                  <f:facet name="firefox">
-                      Works best in Firefox.
-                  </f:facet>
-              </bs:browserSupport>
-          </ui:define>
-    
+      <ui:decorate template="slideDecorator.xhtml">
           <ui:define name="content">
             <ui:include src="/sections/dnd02.xhtml" />
           </ui:define>

@@ -16,28 +16,14 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-<ui:composition
-      xmlns="http://www.w3.org/1999/xhtml"
+
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:hx="http://myfaces.apache.org/html5/html"
-      xmlns:fx="http://myfaces.apache.org/html5/core"
-      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
-
-    <table width="100%">
-       <tr>
-           <td width="90%">
-               <h2>
-                    <ui:insert name="title" />
-               </h2>
-           </td>
-           <td>
-               <ui:insert name="browserSupport"/>
-           </td>
-       </tr>
-   </table>
-
-    <ui:insert name="sectionContent" />
+      xmlns:fx="http://myfaces.apache.org/html5/core">
+            
+           <ui:insert name="content" />
+           <ui:insert name="footer" />
 
 </ui:composition>

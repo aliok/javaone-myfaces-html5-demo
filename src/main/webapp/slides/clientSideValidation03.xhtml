@@ -9,22 +9,7 @@
       xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
       
       
-      <ui:decorate template="/slideDecorator.xhtml">
-          <ui:define name="title">
-             Driving Properties and Client-Side Validation by JSF Validators/Converters 
-          </ui:define>
-
-          <ui:define name="browserSupport">
-              <bs:browserSupport>
-                  <f:facet name="webkit">
-                      This feature works in latest Webkit.
-                  </f:facet>
-                  <f:facet name="opera">
-                      This feature works in latest Opera.
-                  </f:facet>
-              </bs:browserSupport>
-          </ui:define>
-    
+      <ui:decorate template="slideDecorator.xhtml">
           <ui:define name="content">
             <ui:include src="/sections/clientSideValidation03.xhtml" />        
           </ui:define>

@@ -5,7 +5,23 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
-      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+
+<ui:define name="title">
+ Driving Properties and Client-Side Validation by JSF Validators/Converters
+</ui:define>
+
+<ui:define name="browserSupport">
+  <bs:browserSupport>
+      <f:facet name="webkit">
+          This feature works in latest Webkit.
+      </f:facet>
+      <f:facet name="opera">
+          This feature works in latest Opera.
+      </f:facet>
+  </bs:browserSupport>
+</ui:define>
 
 <ui:define name="sectionContent">
       

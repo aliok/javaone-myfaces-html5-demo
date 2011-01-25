@@ -5,7 +5,23 @@
       xmlns:ui="http://java.sun.com/jsf/facelets" 
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
-      xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
+      xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+
+<ui:define name="title">
+    Date inputs
+</ui:define>
+
+<ui:define name="browserSupport">
+  <bs:browserSupport webkitSupport="false">
+      <f:facet name="webkit">
+          Currently, Chrome does not show the date picker, but it validates the entered value.
+      </f:facet>
+      <f:facet name="opera">
+          This feature works in latest Opera.
+      </f:facet>
+  </bs:browserSupport>
+</ui:define>
 
 <ui:define name="sectionContent">
       

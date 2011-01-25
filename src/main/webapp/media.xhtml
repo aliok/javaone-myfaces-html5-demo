@@ -6,19 +6,7 @@
     xmlns:fx="http://myfaces.apache.org/html5/core"
     xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
 
-    <ui:define name="pageName">
-        Media Components
-    </ui:define>
-
     <ui:define name="content">
-        <p>
-            Notes:
-            <ul>
-                <li>You will see a warning instead of the video in IE or anyother browser that does not support Html5 video.</li>
-                <li>Try on Chrome or (Firefox 4) for best experience.</li>
-                <li>First video will be played on Chrome, but not on Opera or Firefox since the only media source defined in first video (h264 on mp4) is not supported by them.</li>
-            </ul>
-        </p>
         <div class="slide">
             <ui:include src="/sections/media01.xhtml" />
         </div>
