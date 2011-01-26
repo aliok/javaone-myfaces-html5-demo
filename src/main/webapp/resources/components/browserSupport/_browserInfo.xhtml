@@ -40,7 +40,7 @@
     <h:outputStylesheet target="head" id="browserSupportStyle">
         .expandedBrowserSupportInfo{
             height:300px !important;
-            width:400px !important;
+            width:20% !important;
             overflow:visible;
             z-index:100;
 
@@ -51,6 +51,7 @@
             -moz-box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
             border-radius: 10px;
             -moz-border-radius: 10px;
+            margin-bottom: -300px !important;
         }
 
         div.browserSupportInfo div.browserInfoContent{
@@ -63,21 +64,21 @@
 
         .browserSupportInfo{
             height:24px;
-            width:30px;
+            width:24px;
             overflow:hidden;
             z-index:99;
-            padding-right : 5px;
 
             font-size:0.8em;
-            top: 40px;
+            top: 0px;
             right:100px;
             text-align: left;
-            float:right;
-            margin-bottom:-400px;
-        }
 
+            position:relative;
+            margin-bottom: -24px;
+            float : right;
+        }
         .supportedBrowserIcon, .unSupportedBrowserIcon, .emphasizedBrowserIcon{
-            float: right;
+            float:right;
         }
 
         .supportedBrowserIcon{

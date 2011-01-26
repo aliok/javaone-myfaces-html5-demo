@@ -25,6 +25,7 @@
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh">
 
+    <ui:insert name="browserSupport"/>
     <table width="100%">
        <tr>
            <td width="100%">
@@ -32,12 +33,13 @@
                     <ui:insert name="title" />
                </h2>
            </td>
+       </tr>
+       <tr>
            <td>
-               <ui:insert name="browserSupport"/>
+               <ui:insert name="sectionContent" />
            </td>
        </tr>
    </table>
 
-    <ui:insert name="sectionContent" />
 
 </ui:composition>
