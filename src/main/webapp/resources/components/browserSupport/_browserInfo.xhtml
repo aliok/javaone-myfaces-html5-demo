@@ -44,7 +44,6 @@
             overflow:visible;
             z-index:100;
 
-            padding:10px;
             background: -webkit-gradient(linear, left top, left bottom, from(#EEEEEE), to(white));
             background: -moz-linear-gradient(-90deg, #EEEEEE, white);
             box-shadow: rgba(0, 0, 128, 0.25) -3px 7px 9px;
@@ -64,15 +63,21 @@
 
         .browserSupportInfo{
             height:24px;
-            width:24px;
+            width:30px;
             overflow:hidden;
             z-index:99;
+            padding-right : 5px;
 
             font-size:0.8em;
-            position:absolute;
             top: 40px;
             right:100px;
             text-align: left;
+            float:right;
+            margin-bottom:-400px;
+        }
+
+        .supportedBrowserIcon, .unSupportedBrowserIcon, .emphasizedBrowserIcon{
+            float: right;
         }
 
         .supportedBrowserIcon{
