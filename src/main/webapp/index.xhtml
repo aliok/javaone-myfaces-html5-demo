@@ -4,12 +4,14 @@
       xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-    <link href="#{request.contextPath}/resources/style/text.css" rel="stylesheet" type="text/css" />
-    <link href="#{request.contextPath}/resources/style/common.css" rel="stylesheet" type="text/css" />
+    <h:outputStylesheet library="style" name="text.css" />
+    <h:outputStylesheet library="style" name="animation.css" />
+    <h:outputStylesheet library="style" name="box.css" />
+    <h:outputStylesheet library="style" name="common.css" />
 </h:head>
 <h:body style="align:center;" class="nodecorate">
 	<div style="text-align:center; float: center; padding-left:15%; padding-right:15%; padding-top:100px; position: relative;">
-	   <h2 class="fontedHeader">Apache Myfaces Html5 Renderkit JavaOne Demo</h2>
+	   <h1>Apache Myfaces Html5 Component Library Demo</h1>
 	   <ul style="line-height:30px; list-style: upper-roman; font-size: 30px;" class="fontedHeader">
 	        <li>
                     <h:link outcome="slides" value="Slide View"/>
@@ -18,7 +20,7 @@
 	            <h:link outcome="multiPage" value="Multiple Page View"/>
 	        </li>
 	    </ul>
-	    <h6>Demo available online at : <a href="http://bit.ly/myfaces-html5-j1-demo">bit.ly/myfaces-html5-j1-demo</a></h6>
+	    <h5>Demo available online at : <a href="http://bit.ly/myfaces-html5-j1-demo">http://bit.ly/myfaces-html5-demo</a></h5>
 	</div>
 
 </h:body>
