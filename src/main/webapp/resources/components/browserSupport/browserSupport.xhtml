@@ -39,21 +39,25 @@
 
 <composite:implementation>
         <bs:_browserInfo iconName="webkit.ico" facetName="webkit" support="#{cc.attrs.webkitSupport}"
+                         supportedMessage="This feature is supported by Webkit browsers(Chrome and Safari)."
                          unsupportedMessage="This feature is not supported by Webkit browsers(Chrome and Safari)." style="right:94px;">
             <composite:insertFacet name="webkit" />
         </bs:_browserInfo>
 
         <bs:_browserInfo iconName="mozilla.ico" facetName="mozilla" support="#{cc.attrs.mozillaSupport}"
+                         supportedMessage="This feature is supported by Mozilla browsers."
                          unsupportedMessage="This feature is not supported by Mozilla browsers." style="right:66px;">
             <composite:insertFacet name="mozilla" />
         </bs:_browserInfo>
 
         <bs:_browserInfo iconName="opera.ico" facetName="opera" support="#{cc.attrs.operaSupport}"
+                         supportedMessage="This feature is supported by Opera."
                          unsupportedMessage="This feature is not supported by Opera." style="right:38px;">
             <composite:insertFacet name="opera" />
         </bs:_browserInfo>
 
         <bs:_browserInfo iconName="iewin.gif"   facetName="ie" support="#{cc.attrs.ieSupport}"
+                         supportedMessage="This feature is supported by Internet Explorer."
                          unsupportedMessage="This feature is not supported by Internet Explorer." style="right:10px;">
             <composite:insertFacet name="ie" />
         </bs:_browserInfo>

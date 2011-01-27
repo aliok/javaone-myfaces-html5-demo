@@ -30,6 +30,7 @@
     <composite:facet name="content" required="false"/>
     <composite:attribute name="facetName" required="true" />
     <composite:attribute name="iconName" required="true" />
+    <composite:attribute name="supportedMessage" required="false" default="This feature is supported by this browser." />
     <composite:attribute name="unsupportedMessage" required="false" default="This feature is not supported by this browser." />
     <composite:attribute name="style" required="false" />
     <composite:attribute name="support" required="true" type="java.lang.Boolean" />
@@ -101,13 +102,14 @@
         <fx:effects additionalStyleClassToActivate="expandedBrowserSupportInfo"
                     event="mouseover" deactivationEvents="mouseout" duration="1s"/>
 
-        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(empty cc.facets[cc.attrs.facetName]) ? 'unSupportedBrowserIcon' : ( (not cc.attrs.support) ? 'emphasizedBrowserIcon' : 'supportedBrowserIcon')}" />
+        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(cc.attrs.support) ? 'supportedBrowserIcon' : ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon' : 'unSupportedBrowserIcon')}" />
         <br/>
         <hx:div styleClass="browserInfoContent">
             <h:panelGroup rendered="#{not empty cc.facets[cc.attrs.facetName]}">
                 <composite:renderFacet name="#{cc.attrs.facetName}" />
             </h:panelGroup>
-            <h:outputText value="#{cc.attrs.unsupportedMessage}" rendered="#{empty cc.facets[cc.attrs.facetName]}" />
+            <h:outputText value="#{cc.attrs.supportedMessage}" rendered="#{empty cc.facets[cc.attrs.facetName] and cc.attrs.support}" />
+            <h:outputText value="#{cc.attrs.unsupportedMessage}" rendered="#{empty cc.facets[cc.attrs.facetName] and not cc.attrs.support}" />
 
             <fx:effects delay="0.9s"/>
         </hx:div>
