@@ -84,7 +84,7 @@
 
         .supportedBrowserIcon{
             border : 2px solid green;
-            opacity:1;
+            opacity:1 !important;
         }
 
         .unSupportedBrowserIcon{
@@ -93,7 +93,7 @@
 
         .emphasizedBrowserIcon{
             opacity:0.5;
-            border : 2px solid red;
+            border : 2px solid red !important;
         }
 
     </h:outputStylesheet>
@@ -102,7 +102,7 @@
         <fx:effects additionalStyleClassToActivate="expandedBrowserSupportInfo"
                     event="mouseover" deactivationEvents="mouseout" duration="1s"/>
 
-        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(cc.attrs.support) ? 'supportedBrowserIcon' : ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon' : 'unSupportedBrowserIcon')}" />
+        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(cc.attrs.support) ? ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon supportedBrowserIcon' : 'supportedBrowserIcon') : ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon' : 'unSupportedBrowserIcon')}" />
         <br/>
         <hx:div styleClass="browserInfoContent">
             <h:panelGroup rendered="#{not empty cc.facets[cc.attrs.facetName]}">
