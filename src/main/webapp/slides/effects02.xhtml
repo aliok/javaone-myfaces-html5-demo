@@ -16,7 +16,14 @@
   ~ specific language governing permissions and limitations
   ~ under the License.
   -->
-<ui:composition template="/sections/sectionTemplate.xhtml"
+
+
+
+
+
+
+
+<ui:composition
       xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:f="http://java.sun.com/jsf/core" 
       xmlns:h="http://java.sun.com/jsf/html"
@@ -25,50 +32,12 @@
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
       xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
-
-<ui:define name="title">
-    Animations
-</ui:define>
-
-<ui:define name="browserSupport">
-  <bs:browserSupport>
-  </bs:browserSupport>
-</ui:define>
-
-<ui:define name="sectionContent">
-    <h:outputStylesheet>
-        div.effectDemoBox{
-            border: 1px dashed blue;
-            margin-top : 15px;
-            width: 100% !important;
-            height:200px !important;
-        }
-
-        div.effectDemoBoxText{
-            text-align:center;
-            width:100%;
-        }
-    </h:outputStylesheet>
-    <h:panelGrid columns="3" width="100%">
-
-        <hx:div styleClass="effectDemoBox">
-            <div class="effectDemoBoxText">Click to fade, then mouse out to return back</div>
-            <fx:animations 
-
-            <fx:effects event="click" deactivationEvents="mouseout" duration="0.4s" timingFunction="ease-in">
-                <fx:effect property="opacity" value="0.3"/>
-            </fx:effects>
-            <sh:sh><![CDATA[
-<hx:div>
-<fx:effects event="click"
-    deactivationEvents="mouseout" ...>
-    <fx:effect property="opacity"
-        value="0.3"/>
-</fx:effects>
-</hx:div>
-            ]]></sh:sh>
-        </hx:div>
-
-    </h:panelGrid>
-</ui:define>
+      
+      
+      <ui:decorate template="slideDecorator.xhtml">
+          <ui:define name="content">
+            <ui:include src="/sections/effects01.xhtml" />
+          </ui:define>
+      
+      </ui:decorate>
 </ui:composition>
