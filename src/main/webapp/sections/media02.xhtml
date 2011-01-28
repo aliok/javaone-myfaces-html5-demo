@@ -18,8 +18,8 @@
   -->
 
 <ui:composition template="/sections/sectionTemplate.xhtml"
-      xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:f="http://java.sun.com/jsf/core" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:hx="http://myfaces.apache.org/html5/html"
@@ -32,91 +32,59 @@
 </ui:define>
 
 <ui:define name="browserSupport">
-  <bs:browserSupport>
-      <f:facet name="webkit">
-          Works best in Chrome.
+  <bs:browserSupport webkitSupport="true" operaSupport="false" mozillaSupport="false" ieSupport="false">
+      <f:facet name="mozilla">
+          The video will be played on Chrome, but not on Opera or Firefox since the only media source defined in first video (h264 on mp4) is not supported by them.
+      </f:facet>
+      <f:facet name="opera">
+          The video will be played on Chrome, but not on Opera or Firefox since the only media source defined in first video (h264 on mp4) is not supported by them.
+      </f:facet>
+      <f:facet name="ie">
+          You will see a flash fallback in IE or anyother browser that does not support Html5 video.
       </f:facet>
   </bs:browserSupport>
 </ui:define>
 
 <ui:define name="sectionContent">
-      
-              <h:outputScript target="head" id="videoScripts">
-	             function play(){
-	                 document.getElementById('video02').play();
-	             }
-	             function pause(){
-	                 document.getElementById('video02').pause();
-	             }
-              </h:outputScript>
-              
-              <h:outputStylesheet target="head" id="videoStyles">
-                 video {
-                   z-index: 1000;
-                 }
-              </h:outputStylesheet>
-              
-              <h:outputStylesheet target="head" id="videoEffectStyles">
-                 .styledVideo{
-		               box-shadow: 5px 44px 28px #333;
-		               -webkit-box-shadow: 5px 44px 28px #333;
-		               -moz-box-shadow: 5px 44px 28px #333;
-		               
-		               -webkit-box-reflect: below 1px -webkit-gradient(linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25))) 0 0 0 0 stretch stretch;
-		             }
 
-                   #media02Code pre.prettyprint {
-				        font-size: 10px !important;
-				  }
-              </h:outputStylesheet>
-              
               <h:panelGrid columns="1">
-                <h:panelGroup>
-	                <h:panelGrid columns="1">
-	                    <hx:video id="video02" showControls="false" onmouseover="this.play();" onmouseout="this.pause();"
-	                        autoplay="false" preload="none" poster="#{request.contextPath}/resources/video/mother_goose_thumbnail_small.png" width="400" height="300" >
-                            <fx:effects event="mouseover" additionalStyleClassToActivate="styledVideo" duration="1s">
-                                <fx:effectTransform translateX="100" translateY="30" scaleX="1.3" rotate="385deg" />
-                            </fx:effects>
 
+	            <hx:video id="video01" showControls="true"
+	                autoplay="false" preload="none" poster="#{request.contextPath}/resources/video/mother_goose_thumbnail_small.png" width="400" height="300" >
+	                <f:facet name="fallback">
+	                    <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="400" height="300">
+	                        <param name="movie" value="#{request.contextPath}/resources/video/player.swf" />
+	                        <param name="allowfullscreen" value="true" />
+	                        <param name="allowscriptaccess" value="always" />
+	                        <param name="flashvars" value="file=#{request.contextPath}/resources/video/mother_goose_flv.flv" />
+	                        <embed
+	                            type="application/x-shockwave-flash"
+	                            id="player2"
+	                            name="player2"
+	                            src="#{request.contextPath}/resources/video/player.swf"
+	                            width="400"
+	                            height="300"
+	                            allowscriptaccess="always"
+	                            allowfullscreen="true"
+	                            flashvars="file=#{request.contextPath}/resources/video/mother_goose_flv.flv"
+	                        />
+	                    </object>
+	                </f:facet>
 
-	                        <f:facet name="fallback">
-	                          <p style="color: red;">No Html5 video support here!</p>
-	                          <p>You can embed a Flash video in here.</p>
-	                        </f:facet>
-	                
-	                        <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_ogg.ogv" contentType="video/ogg" codec="theo, vorb"/>        
-	                        <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_h264_copy.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
-	                    </hx:video>
-	                 
-	                    <h:panelGroup>
-	                        <button onclick="play(); return false;">Play</button>
-	                        <button onclick="pause(); return false;">Pause</button>
-	                    </h:panelGroup>
-	                </h:panelGrid>
-	            </h:panelGroup>
-	            <h:panelGroup id="media02Code">
-	                <sh:sh><![CDATA[
-<hx:video id="motherGooseVideo" showControls="false" poster="... mother_goose_thumbnail_small.png"
-    onmouseover="this.play();" onmouseout="this.pause();">
-    <fx:effects event="mouseover" additionalStyleClassToActivate="styledVideo" duration="1s">
-        <fx:effectTransform translateX="100" translateY="30" scaleX="1.3" rotate="385deg" />
-    </fx:effects>
+	                <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_h264.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+	            </hx:video>
+	            <sh:sh><![CDATA[
+<hx:video ...>
+    <f:facet name="fallback">
+      <object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" ...>
+      ...
+      </object>
+    </f:facet>
+    ....
     <fx:mediaSource src="... mother_goose_ogg.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
 </hx:video>
-<button onclick="document.getElementById('motherGooseVideo').play();">Play</button>
-<button onclick="document.getElementById('motherGooseVideo').pause();">Pause</button>
-	                ]]></sh:sh>
-	                <sh:sh lang="css"><![CDATA[
-.styledVideo{
-    box-shadow: 5px 44px 28px #333;
-    box-reflect: below 1px -webkit-gradient
-       (linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25)))
-       0 0 0 0 stretch stretch;
-}  
-	                ]]></sh:sh>
-	            </h:panelGroup>
-              </h:panelGrid>
+	            ]]></sh:sh>
+	          </h:panelGrid>
 
 </ui:define>
 </ui:composition>

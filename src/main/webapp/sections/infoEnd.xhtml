@@ -28,16 +28,26 @@
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
       xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
 
-<ui:define name="title">
-    End of Demo
-</ui:define>
-
-<ui:define name="browserSupport">
-  <bs:browserSupport>
-  </bs:browserSupport>
-</ui:define>
-
 <ui:define name="sectionContent">
+    <h:outputStylesheet>
+        div#endInfoSection a{
+            color: blue;    
+        }
+    </h:outputStylesheet>
+    <div id="endInfoSection" style="text-align:center;">
+        <h3>
+            <a href="http://myfaces.apache.org/">http://myfaces.apache.org/</a>
+        </h3>
+        <h3>
+            Questions ->
+            <a href="http://myfaces.apache.org/mail-lists.html">MyFaces User Mail List</a>
+            and
+            <a href="http://twitter.com/aliok_tr">@aliok_tr</a> 
+        </h3>
+        <h3>
+            Demo source code : <a href="https://github.com/aliok/javaone-myfaces-html5-demo">https://github.com/aliok/javaone-myfaces-html5-demo</a>
+        </h3>
+    </div>
 
 </ui:define>
 </ui:composition>

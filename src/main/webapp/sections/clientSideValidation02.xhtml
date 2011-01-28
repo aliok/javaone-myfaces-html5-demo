@@ -32,14 +32,7 @@
 </ui:define>
 
 <ui:define name="browserSupport">
-  <bs:browserSupport>
-      <f:facet name="webkit">
-          This feature works in latest Webkit.
-      </f:facet>
-      <f:facet name="opera">
-          This feature works in latest Opera.
-      </f:facet>
-  </bs:browserSupport>
+  <bs:browserSupport webkitSupport="true" operaSupport="true" />
 </ui:define>
 
 <ui:define name="sectionContent">
@@ -56,7 +49,9 @@
                     <hx:inputDateTime id="idt01" type="date" value="#{dateTimeBean.date02}" step="3">
                         <fx:validateDateTimeRange minimum="2010-08-15" maximum="2010-12-31"/>
                     </hx:inputDateTime>
-                    <h:message for="idt01" />
+                    <h:panelGroup id="idt01Msg">
+                        <h:message for="idt01" />
+                    </h:panelGroup>
                     <sh:sh><![CDATA[
 <hx:inputDateTime type="date" step="3" ...>
     <fx:validateDateTimeRange minimum="2010-08-15"
@@ -64,12 +59,14 @@
 </hx:inputDateTime>
                     ]]></sh:sh>
                     
-                    <h:outputLabel for="it03" value="Validation pattern driven by custom JSF validator"/>
+                    <h:outputLabel for="it03" value="Client-side validation pattern driven by custom JSF validator"/>
                     <hx:inputText id="it03" value="#{clientSideValidationBean.param03}" placeholder="Enter a promo code" cols="20" 
                            alt="A promo code consists of 2 digits followed by 2 upper-case characters">
                        <f:validator validatorId="promoCodeValidator" />
                     </hx:inputText>
-                    <h:message for="it03" />
+                    <h:panelGroup id="it03Msg">
+                        <h:message for="it03" />
+                    </h:panelGroup>
                     <h:panelGroup>
 	                    <sh:sh><![CDATA[
 <hx:inputText ...>
@@ -101,7 +98,7 @@ public class PromoCodeValidator implements
                     
 	                <h:outputText />
 	                <input type="button" value="Try Submitting" 
-	                   onclick="if(submitForm('clientSideValidationForm02')){jsf.ajax.request(this,event, {execute:'@form',render:'@form',onevent: handleEvent})};return false;"/>
+	                   onclick="if(submitForm('clientSideValidationForm02')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm02:idt01Msg clientSideValidationForm02:it03Msg',onevent: handleEvent})};return false;"/>
 	                <h:outputText />
 	                <h:outputText />
 	                               

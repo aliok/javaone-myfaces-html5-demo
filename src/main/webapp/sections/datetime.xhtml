@@ -32,12 +32,9 @@
 </ui:define>
 
 <ui:define name="browserSupport">
-  <bs:browserSupport webkitSupport="false">
+  <bs:browserSupport webkitSupport="false" operaSupport="true">
       <f:facet name="webkit">
           Currently, Chrome does not show the date picker, but it validates the entered value.
-      </f:facet>
-      <f:facet name="opera">
-          This feature works in latest Opera.
       </f:facet>
   </bs:browserSupport>
 </ui:define>

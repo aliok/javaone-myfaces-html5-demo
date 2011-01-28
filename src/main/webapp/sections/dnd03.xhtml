@@ -32,12 +32,9 @@
 </ui:define>
 
 <ui:define name="browserSupport">
-  <bs:browserSupport webkitSupport="false">
+  <bs:browserSupport webkitSupport="false" mozillaSupport="true">
       <f:facet name="webkit">
           Does not work in Chrome because of <a href="http://code.google.com/p/chromium/issues/detail?id=50009" style="text-decoration: underline;">Chromium Issue-50009</a>
-      </f:facet>
-      <f:facet name="firefox">
-          Works best in Firefox.
       </f:facet>
   </bs:browserSupport>
 </ui:define>
@@ -64,10 +61,6 @@
 		              width: 35px;
 		          }
 		          
-		          #dynamicDndCodeTable pre.prettyprint {
-				        font-size: 10px !important;
-				  }
-		          
 	          </h:outputStylesheet>
 	          
 	          <h:form prependId="false">
@@ -80,7 +73,7 @@
                                       <fx:animations event="drop" duration="1s" iteration="5">
                                           <fx:animationShake rotation="15" />
                                       </fx:animations>
-	                                  <fx:dropTarget dropListener="#{dndBean.processTeamDrop}" rerender="dynamicDnDContainer" types="F,B"/>
+	                                  <fx:dropTarget dropListener="#{dndBean.processTeamDrop}" rerender="dynamicDnDContainer slideView:dynamicDnDContainer" types="F,B"/>
 
 	                                  <div style="padding:5px; text-align: center;">
 	                                      <h:outputText value="All Teams" />
@@ -104,7 +97,7 @@
 	                                 <fx:animations event="drop" duration="1s" iteration="5">
                                           <fx:animationShake rotation="15" />
                                       </fx:animations>
-                                     <fx:dropTarget dropListener="#{dndBean.processBasketballTeamDrop}" rerender="dynamicDnDContainer" types="B"/>
+                                     <fx:dropTarget dropListener="#{dndBean.processBasketballTeamDrop}" rerender="dynamicDnDContainer slideView:dynamicDnDContainer" types="B"/>
 	                                    
 	                                 <div style="padding:5px; text-align: center;">
 	                                    <h:outputText value="Basketball Teams" />
@@ -128,7 +121,7 @@
                                       <fx:animations event="drop" duration="1s" iteration="5">
                                           <fx:animationShake rotation="15" />
                                       </fx:animations>
-	                                  <fx:dropTarget dropListener="#{dndBean.processFootballTeamDrop}" rerender="dynamicDnDContainer" types="F"/>
+	                                  <fx:dropTarget dropListener="#{dndBean.processFootballTeamDrop}" rerender="dynamicDnDContainer slideView:dynamicDnDContainer" types="F"/>
 	                              
 	                                  <div style="padding:5px; text-align: center;">
 	                                     <h:outputText value="Football Teams" />
@@ -161,7 +154,7 @@
 	                </table>
 	            </hx:div>
             </h:form>
-            <table id="dynamicDndCodeTable">
+            <table>
                 <tr>
                     <td>
 		               <sh:sh><![CDATA[

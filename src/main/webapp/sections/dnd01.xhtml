@@ -32,12 +32,9 @@
 </ui:define>
 
 <ui:define name="browserSupport">
-  <bs:browserSupport webkitSupport="false">
+  <bs:browserSupport webkitSupport="false" mozillaSupport="true">
       <f:facet name="webkit">
           Does not work in Chrome because of <a href="http://code.google.com/p/chromium/issues/detail?id=50009" style="text-decoration: underline;">Chromium Issue-50009</a>
-      </f:facet>
-      <f:facet name="mozilla">
-          Works best in Firefox.
       </f:facet>
   </bs:browserSupport>
 </ui:define>
@@ -74,7 +71,7 @@
 		                        <hx:div id="dropZone01" styleClass="dropZone">
                                     <fx:effects event="dragenter" additionalStyleClassToActivate="dragEntered" duration="0.5"/>
                                     <fx:dropTarget dropListener="#{dndBean.processSimpleDnd}"
-		                                rerender="simpleDndOutput"/>
+		                                rerender="simpleDndOutput slideView:simpleDndOutput"/>
 		                            <div style="padding-top:45%; text-align: center;">
 		                                <h:outputText value="DROP HERE" />
 		                            </div>
