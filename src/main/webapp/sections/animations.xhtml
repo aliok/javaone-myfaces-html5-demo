@@ -49,25 +49,136 @@
             width:100%;
         }
     </h:outputStylesheet>
-    <h:panelGrid columns="3" width="100%">
+    <h:panelGrid columns="2" width="100%">
 
         <hx:div styleClass="effectDemoBox">
-            <div class="effectDemoBoxText">Click to fade, then mouse out to return back</div>
-            <fx:animations 
+            <div class="effectDemoBoxText">Click to shake</div>
+            <fx:animations event="click" iteration="3" duration="0.3s" timingFunction="ease-in-out">
+                <fx:animationShake rotation="10" />
+            </fx:animations>
 
-            <fx:effects event="click" deactivationEvents="mouseout" duration="0.4s" timingFunction="ease-in">
-                <fx:effect property="opacity" value="0.3"/>
-            </fx:effects>
             <sh:sh><![CDATA[
 <hx:div>
-<fx:effects event="click"
-    deactivationEvents="mouseout" ...>
-    <fx:effect property="opacity"
-        value="0.3"/>
-</fx:effects>
+<fx:animations event="click" iteration="3"
+    duration="0.3s" timingFunction="ease-in-out">
+    <fx:animationShake rotation="10" />
+</fx:animations>
 </hx:div>
             ]]></sh:sh>
         </hx:div>
+
+        <hx:div styleClass="effectDemoBox">
+            <div class="effectDemoBoxText">Click to pulse</div>
+            <fx:animations event="click" iteration="3" duration="0.3s" timingFunction="ease-in-out">
+                <fx:animationPulse maxOpacity="1" minOpacity="0.2"/>
+            </fx:animations>
+
+            <sh:sh><![CDATA[
+<hx:div>
+<fx:animations event="click" iteration="3"
+    duration="0.3s" timingFunction="ease-in-out">
+    <fx:animationPulse maxOpacity="1" minOpacity="0.2"/>
+</fx:animations>
+</hx:div>
+            ]]></sh:sh>
+        </hx:div>
+
+        <hx:div styleClass="effectDemoBox">
+            <div class="effectDemoBoxText">Click to scale</div>
+            <fx:animations event="click" iteration="3" duration="0.3s" timingFunction="ease-in-out">
+                <fx:animationScale maxSize="1" minSize="0.5" />
+            </fx:animations>
+
+            <sh:sh><![CDATA[
+<hx:div>
+<fx:animations event="click" iteration="3"
+    duration="0.3s" timingFunction="ease-in-out">
+    <fx:animationScale maxSize="1" minSize="0.2" />
+</fx:animations>
+</hx:div>
+            ]]></sh:sh>
+        </hx:div>
+
+        <h:panelGroup>
+            <h:outputStylesheet id="customKeyFrame">
+                .customKeyFrameAnimation{
+                    position: absolute;
+                    width : 200px !important;
+                }
+                @-webkit-keyframes customKeyFrame {
+                    0% {
+                        width : 200px !important;
+                        left : 10%;
+                        top : 10%;
+                        -webkit-transform : skewX(0deg);
+                        background-color : yellow;
+                    }
+                    10% {
+                        left : 10%;
+                        top : 10%;
+                        background-color : none;
+                    }
+                    20% {
+                        left : 70%;
+                        top : 70%;
+                    }
+                    30% {
+                        left : 70%;
+                        top : 70%;
+                    }
+                    40% {
+                        left : 40%;
+                        top : 40%;
+                        -webkit-transform : skewX(-20deg);
+                    }
+                    50% {
+                        left : 40%;
+                        top : 40%;
+                        -webkit-transform : skewX(0deg);
+                    }
+                    60% {
+                        left : 70%;
+                        top : 50%;
+                    }
+                    70% {
+                        left : 70%;
+                        top : 50%;
+                    }
+                    80% {
+                        left : 10%;
+                        top : 20%;
+                    }
+                    90% {
+                        left : 10%;
+                        top : 20%;
+                    }
+                    100% {
+                        width : 200px !important;
+                        left : 10%;
+                        top : 20%;
+                        background-color : none;
+                        -webkit-transform : skewX(0deg);
+                    }
+                }
+            </h:outputStylesheet>
+            <hx:div styleClass="effectDemoBox" style="" ondblclick="this.className='effectDemoBox';">
+                <div class="effectDemoBoxText">Click to run animation with custom</div>
+                <div class="effectDemoBoxText">keyframe. Double click to stop</div>
+                <fx:animation id="customKeyFrameAnimation" event="click" iteration="30" duration="6s" timingFunction="linear" direction="alternate" keyFrame="customKeyFrame"/>
+
+                <sh:sh lang="css"><![CDATA[
+@-webkit-keyframes customKeyFrame {
+     0% { left : 10%; top : 10%; }
+    10% { left : 70%; top : 70%; }
+    ....
+}
+                ]]></sh:sh>
+                <sh:sh lang="css"><![CDATA[
+<fx:animation keyFrame="customKeyFrame" event="click"
+  iteration="30" duration="6s" direction="alternate"/>
+                ]]></sh:sh>
+            </hx:div>
+        </h:panelGroup>
 
     </h:panelGrid>
 </ui:define>
