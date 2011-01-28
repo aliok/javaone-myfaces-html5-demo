@@ -38,6 +38,89 @@
 </ui:define>
 
 <ui:define name="sectionContent">
+    <h:outputStylesheet>
+        div.meterAndProgressDemoBox{
+            border : 1px solid blue;
+        }
+        div.meterAndProgressDemoBox div{
+            text-align:center;
+        }
+    </h:outputStylesheet>
+    <h:panelGrid columns="2" width="100%">
+        <hx:div styleClass="meterAndProgressDemoBox">
+            <div>Value lower than optimal range</div>
+            <div>
+                <hx:meter value="15" maximum="100" minimum="0" low="20" high="80" optimum="50" />
+            </div>
+            <sh:sh><![CDATA[
+<hx:meter value="15" maximum="100" minimum="0"
+    low="20" high="80" optimum="50" />
+            ]]></sh:sh>
+        </hx:div>
 
+        <hx:div styleClass="meterAndProgressDemoBox">
+            <div>Value in acceptable range</div>
+            <div>
+                <hx:meter value="60" maximum="100" minimum="0" low="20" high="80" optimum="50" />
+            </div>
+            <sh:sh><![CDATA[
+<hx:meter value="60" maximum="100" minimum="0"
+    low="20" high="80" optimum="50" />
+            ]]></sh:sh>
+        </hx:div>
+
+        <hx:div styleClass="meterAndProgressDemoBox">
+            <div>Value higher than optimal range</div>
+            <div>
+                <hx:meter value="90" maximum="100" minimum="0" low="20" high="80" optimum="50" />
+            </div>
+            <sh:sh><![CDATA[
+<hx:meter value="90" maximum="100" minimum="0"
+    low="20" high="80" optimum="50" />
+            ]]></sh:sh>
+        </hx:div>
+
+        <h:outputText />
+
+        <hx:div styleClass="meterAndProgressDemoBox">
+            <div>Low progress</div>
+            <div>
+                <hx:progress value="15" maximum="100"/>
+            </div>
+            <sh:sh><![CDATA[
+<hx:progress value="15" maximum="100"/>
+            ]]></sh:sh>
+        </hx:div>
+
+        <hx:div styleClass="meterAndProgressDemoBox">
+            <div>Middle in the progress</div>
+            <div>
+                <hx:progress value="50" maximum="100"/>
+            </div>
+            <sh:sh><![CDATA[
+<hx:progress value="50" maximum="100"/>
+            ]]></sh:sh>
+        </hx:div>
+
+        <hx:div styleClass="meterAndProgressDemoBox">
+            <div>High progress</div>
+            <div>
+                <hx:progress value="90" maximum="100"/>
+            </div>
+            <sh:sh><![CDATA[
+<hx:progress value="90" maximum="100"/>
+            ]]></sh:sh>
+        </hx:div>
+
+        <hx:div styleClass="meterAndProgressDemoBox">
+            <div>Indefinite progress</div>
+            <div>
+                <hx:progress maximum="100"/>
+            </div>
+            <sh:sh><![CDATA[
+<hx:progress maximum="100"/>
+            ]]></sh:sh>
+        </hx:div>
+    </h:panelGrid>
 </ui:define>
 </ui:composition>

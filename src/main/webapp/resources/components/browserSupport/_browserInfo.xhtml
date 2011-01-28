@@ -104,7 +104,8 @@
         <fx:effects additionalStyleClassToActivate="expandedBrowserSupportInfo"
                     event="mouseover" deactivationEvents="mouseout" duration="1s"/>
 
-        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" styleClass="#{(cc.attrs.support) ? ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon supportedBrowserIcon' : 'supportedBrowserIcon') : ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon' : 'unSupportedBrowserIcon')}" />
+        <h:graphicImage library="image/browser" name="#{cc.attrs.iconName}" alt="#{cc.attrs.iconName}" 
+                        styleClass="#{(cc.attrs.support) ? ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon supportedBrowserIcon' : 'supportedBrowserIcon') : ( (not empty cc.facets[cc.attrs.facetName]) ? 'emphasizedBrowserIcon' : 'unSupportedBrowserIcon')}" />
         <br/>
         <hx:div styleClass="browserInfoContent">
             <h:panelGroup rendered="#{not empty cc.facets[cc.attrs.facetName]}">
