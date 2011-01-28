@@ -20,54 +20,60 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-      
-<h:head>
-    <h:outputStylesheet library="style" name="text.css" />
-    <h:outputStylesheet library="style" name="animation.css" />
-    <h:outputStylesheet library="style" name="box.css" />
-    <h:outputStylesheet library="style" name="common.css" />
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 
-    <meta charset="utf-8" />
+<h:head>
+    <h:outputStylesheet library="style" name="text.css"/>
+    <h:outputStylesheet library="style" name="animation.css"/>
+    <h:outputStylesheet library="style" name="box.css"/>
+    <h:outputStylesheet library="style" name="common.css"/>
+
+    <meta charset="utf-8"/>
     <title>Apache Myfaces Html5 Component Library Demo</title>
 </h:head>
 <h:body style="align:center;" class="nodecorate">
-	<div style="text-align:center; float: center; padding-left:15%; padding-right:15%; padding-top:100px; position: relative;">
-	   <h1>Apache Myfaces Html5 Component Library Demo</h1>
-	   <ul style="line-height:30px; list-style: upper-roman; font-size: 30px;" class="fontedHeader">
-	        <li>
-	            <h:link outcome="slideView" value="Slide View Component"/>
-	        </li>
+    <div style="text-align:center; float: center; padding-left:15%; padding-right:15%; padding-top:100px; position: relative;">
+        <h1>Apache Myfaces Html5 Component Library Demo</h1>
+
+        <ui:include src="/slides/generalInfo.xhtml"/>
+
+        <ul style="line-height:30px; list-style: upper-roman; font-size: 30px;" class="fontedHeader">
             <li>
-	            <h:link outcome="inputTypes" value="Input Types"/>
-	        </li>
-	        <li>
-	            <h:link outcome="clientSideValidation" value="Client Side Validation and Driving Properties with JSF Validators/Converters"/>
-	        </li>
+                <h:link outcome="slideView" value="Slide View Component"/>
+            </li>
             <li>
-	            <h:link outcome="meterAndProgress" value="Meter Progress"/>
-	        </li>
+                <h:link outcome="inputTypes" value="Input Types"/>
+            </li>
             <li>
-	            <h:link outcome="animations" value="Animations"/>
-	        </li>
+                <h:link outcome="clientSideValidation"
+                        value="Client Side Validation and Driving Properties with JSF Validators/Converters"/>
+            </li>
             <li>
-	            <h:link outcome="media" value="Video, Audio and Media "/>
-	        </li>
+                <h:link outcome="meterAndProgress" value="Meter Progress"/>
+            </li>
             <li>
-	            <h:link outcome="effects" value="Effects"/>
-	        </li>
+                <h:link outcome="animations" value="Animations"/>
+            </li>
             <li>
-	            <h:link outcome="datetime" value="Date-Time"/>
-	        </li>
-	        <li>
-	            <h:link outcome="suggestions" value="Suggestions"/>
-	        </li>
-	        <li>
-	            <h:link outcome="dnd" value="Drag and Drop"/>
-	        </li>
-	    </ul>
-	    <h5>Demo available online at : <a href="http://bit.ly/myfaces-html5-j1-demo">http://bit.ly/myfaces-html5-demo</a></h5>
-	</div>
-	
+                <h:link outcome="media" value="Video, Audio and Media "/>
+            </li>
+            <li>
+                <h:link outcome="effects" value="Effects"/>
+            </li>
+            <li>
+                <h:link outcome="datetime" value="Date-Time"/>
+            </li>
+            <li>
+                <h:link outcome="suggestions" value="Suggestions"/>
+            </li>
+            <li>
+                <h:link outcome="dnd" value="Drag and Drop"/>
+            </li>
+        </ul>
+        <h5>Demo available online at : <a
+                href="http://bit.ly/myfaces-html5-j1-demo">http://bit.ly/myfaces-html5-demo</a></h5>
+    </div>
+
 </h:body>
 </html>
