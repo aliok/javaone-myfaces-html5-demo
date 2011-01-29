@@ -111,6 +111,11 @@
     <script>
         removeCDataAndTrim();
         prettyPrint();
+        try {
+            slideView.goto(parseInt(window.location.hash.split('#')[1]));
+        }catch (e) {
+            //do nothing
+        }
     </script>
   </h:body>
 </html>
