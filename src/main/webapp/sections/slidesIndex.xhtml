@@ -28,11 +28,34 @@
 </ui:define>
 
 <ui:define name="sectionContent">
+    <h:outputStylesheet id="newFeatureStyle">
+        @-webkit-keyframes newFeatureKeyFrame{
+            0% {
+               opacity: 1.0;
+            }
+            100% {
+               opacity: 0.1; 
+            }
+        }
+        sup.newFeature{
+            -webkit-animation-name : newFeatureKeyFrame;
+            -webkit-animation-duration: 0.7s;
+            -webkit-animation-iteration-count: infinite; 
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-direction: alternate;
+            color: red;
+            font-size: small;
+            font-style: normal;
+            font-variant: small-caps;
+            font-weight: bold;
+        }
+    </h:outputStylesheet>
 
 	          <div style="padding-left:15%;">
 			       <ul style="line-height:120%; list-style: upper-roman; font-size: 140%;" class="fontedHeader">
                         <li>
 			                 <a href="#" onclick="slideView.goto(2);return false;">Slide View</a>
+                             <sup class="newFeature">New</sup>
 			            </li>
 			            <li>
 			                 <a href="#" onclick="slideView.goto(3);return false;">Input Types</a>
@@ -42,15 +65,18 @@
 			           </li>
                        <li>
                             <a href="#" onclick="slideView.goto(7);return false;">Effects</a>
+                            <sup class="newFeature">New</sup>
 			           </li>
                        <li>
                             <a href="#" onclick="slideView.goto(9);return false;">Animations</a>
+                            <sup class="newFeature">New</sup>
 			           </li>
                        <li>
                             <a href="#" onclick="slideView.goto(10);return false;">Video and Audio</a>
 			           </li>
                        <li>
                             <a href="#" onclick="slideView.goto(12);return false;">Meter and Progress</a>
+                            <sup class="newFeature">New</sup>
 			           </li>
                        <li>
                             <a href="#" onclick="slideView.goto(13);return false;">Date-Time</a>
