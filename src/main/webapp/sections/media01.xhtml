@@ -74,16 +74,14 @@
 		               -webkit-box-reflect: below 1px -webkit-gradient(linear, 0% 0%, 0% 74%, from(transparent), to(rgba(255, 255, 255, 0.25))) 0 0 0 0 stretch stretch;
 		             }
 
-                   #media02Code pre.prettyprint {
-				        font-size: 10px !important;
-				  }
               </h:outputStylesheet>
 
               <h:panelGrid columns="1">
                 <h:panelGroup>
-	                <h:panelGrid columns="1">
+	                <h:outputText value="Mouse hover on video to play" />
+                    <h:panelGrid columns="1">
 	                    <hx:video id="video02" showControls="false" onmouseover="this.play();" onmouseout="this.pause();"
-	                        autoplay="false" preload="none" poster="#{request.contextPath}/resources/video/mother_goose_thumbnail_small.png" width="400" height="300" >
+	                        autoplay="false" preload="none" poster="#{request.contextPath}/resources/video/mother_goose_thumbnail_small.png" width="200" height="150" >
                             <fx:effects event="mouseover" additionalStyleClassToActivate="styledVideo" duration="1s">
                                 <fx:effectTransform translateX="100" translateY="30" scaleX="1.3" rotate="385deg" />
                             </fx:effects>
@@ -94,9 +92,9 @@
 	                          <p>You can embed a Flash video in here.</p>
 	                        </f:facet>
 
-	                        <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_ogg.ogv" contentType="video/ogg" codec="theo, vorb"/>
-	                        <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_h264_copy.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
-	                    </hx:video>
+                            <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_ogg_2.ogv" contentType="video/ogg" codec="theo, vorb"/>
+                            <fx:mediaSource src="#{request.contextPath}/resources/video/mother_goose_h264_copy.mp4" contentType="video/mp4" codec="avc1, mp4a"/>
+                        </hx:video>
 
 	                    <h:panelGroup>
 	                        <button onclick="play(); return false;">Play</button>
