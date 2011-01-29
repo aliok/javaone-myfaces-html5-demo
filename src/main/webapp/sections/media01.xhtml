@@ -46,10 +46,16 @@
 
               <h:outputScript target="head" id="videoScripts">
 	             function play(){
-	                 document.getElementById('video02').play();
+	                if(document.getElementById('video02'))
+                        document.getElementById('video02').play();
+                    else
+                        document.getElementById('slideView:video02').play();
 	             }
 	             function pause(){
-	                 document.getElementById('video02').pause();
+                     if(document.getElementById('video02'))
+	                    document.getElementById('video02').pause();
+                     else
+                        document.getElementById('slideView:video02').pause();
 	             }
               </h:outputScript>
 
