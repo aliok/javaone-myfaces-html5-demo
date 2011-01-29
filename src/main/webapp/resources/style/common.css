@@ -132,3 +132,24 @@
     div.mf-slide {
         padding-left : 1%;
     }
+
+    @-webkit-keyframes newFeatureKeyFrame{
+        0% {
+           opacity: 1.0;
+        }
+        100% {
+           opacity: 0.1;
+        }
+    }
+    sup.newFeature{
+        -webkit-animation-name : newFeatureKeyFrame;
+        -webkit-animation-duration: 0.7s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-animation-direction: alternate;
+        color: red;
+        font-size: small;
+        font-style: normal;
+        font-variant: small-caps;
+        font-weight: bold;
+    }
