@@ -37,12 +37,6 @@
 
 <ui:define name="sectionContent">
       
-              <h:outputScript target="head" id="updateSliderValue">
-		            function handleEvent(e){
-		                if(e.status == 'success')
-		                  alert('Request sent and respose recieved.');
-		            }
-		     </h:outputScript>
              <h:outputScript target="head" id="hackingButtonScript">
                  function hack(){
                     if(document.getElementById('clientSideValidationForm03:it03')){
@@ -93,7 +87,7 @@ document.getElementById('demoForm:it03').pattern='|0-9|{2}';
                     
                     <h:outputText />
                     <input type="button" value="Try Submitting" 
-                       onclick="if(submitForm('clientSideValidationForm03')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm03:it03Msg',onevent: handleEvent})} return false;"/>
+                       onclick="if(submitForm('clientSideValidationForm03')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm03:it03Msg',onevent: handleAjaxEvent, onerror:handleAjaxError})} return false;"/>
                     <h:outputText />
 	                               
 	            </h:panelGrid>

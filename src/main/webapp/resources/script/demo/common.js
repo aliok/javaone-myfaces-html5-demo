@@ -62,3 +62,20 @@ function removeCDataAndTrim(){
         elementsByClassName[i].innerHTML = innerHTML;
     }
 }
+
+
+function handleAjaxEvent(e){
+   if(e.status == 'success'){
+     alert('Request sent and respose recieved.');
+     return false;
+   }
+   return true;
+}
+
+function handleAjaxError(e){
+   if(e.status == 'serverError'){
+     alert('An error occurred during Ajax request. If you are on Google App Engine, please refresh the page. Unfortunately the view is expired on Google App Engine too early.');
+     return false;
+   }
+   return true;
+}

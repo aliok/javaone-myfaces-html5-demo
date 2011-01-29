@@ -36,13 +36,6 @@
 </ui:define>
 
 <ui:define name="sectionContent">
-              <h:outputScript target="head" id="updateSliderValue">
-		            function handleEvent(e){
-		                if(e.status == 'success')
-		                  alert('Request sent and respose recieved.');
-		            }
-		     </h:outputScript>
-		     
 		     <h:form id="clientSideValidationForm02">
 	            <h:panelGrid columns="4">
 	                <h:outputLabel for="idt01" value="Date"/>
@@ -98,7 +91,7 @@ public class PromoCodeValidator implements
                     
 	                <h:outputText />
 	                <input type="button" value="Try Submitting" 
-	                   onclick="if(submitForm('clientSideValidationForm02')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm02:idt01Msg clientSideValidationForm02:it03Msg',onevent: handleEvent})};return false;"/>
+	                   onclick="if(submitForm('clientSideValidationForm02')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm02:idt01Msg clientSideValidationForm02:it03Msg',onevent: handleAjaxEvent, onerror:handleAjaxError})};return false;"/>
 	                <h:outputText />
 	                <h:outputText />
 	                               

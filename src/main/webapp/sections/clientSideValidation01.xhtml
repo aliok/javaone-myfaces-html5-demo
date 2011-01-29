@@ -43,14 +43,6 @@
            function updateSliderValue(element){
                document.getElementById('sliderValue').innerHTML = element.valueAsNumber;
            };
-           function handleEvent(e){
-               if(e.status == 'success'){
-                 //removeCDataAndTrim();
-                 //prettyPrint();
-                 alert('Request sent and respose recieved.');
-                 return false;
-               }
-           }
     </script>
 
     <h:form id="clientSideValidationForm01">
@@ -120,7 +112,7 @@
 
               <h:outputText />
               <input type="button" value="Try Submitting"
-                 onclick="if(submitForm('clientSideValidationForm01')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm01:it01Msg clientSideValidationForm01:it02Msg clientSideValidationForm01:ie01Msg clientSideValidationForm01:ins01Msg clientSideValidationForm01:ins02Msg',onevent: handleEvent})};return false;"/>
+                 onclick="if(submitForm('clientSideValidationForm01')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm01:it01Msg clientSideValidationForm01:it02Msg clientSideValidationForm01:ie01Msg clientSideValidationForm01:ins01Msg clientSideValidationForm01:ins02Msg',onevent: handleAjaxEvent, onerror:handleAjaxError})};return false;"/>
               <h:outputText />
               <h:outputText />
 
