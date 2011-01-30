@@ -48,62 +48,63 @@
         </h:outputStylesheet>
 	  </h:head>
     <h:body style="align:center;" class="nodecorate">
-        <hx:slideView id="slideView" duration="0.5s" timingFunction="ease-in-out" widgetVar="slideView">
-            <hx:slide>
+        <hx:slideView id="parentSlideView" prependId="false"
+                      duration="0.5s" timingFunction="ease-in-out" widgetVar="slideView">
+            <hx:slide id="slidesInfo" prependId="false">
                 <ui:include src="/slides/slidesInfo.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="slidesIndex" prependId="false">
                 <ui:include src="/slides/slidesIndex.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="slideView" prependId="false">
                 <ui:include src="/slides/slideView.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="inputTypes" prependId="false">
                 <ui:include src="/slides/inputTypes.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="clientSideValidation01" prependId="false">
                 <ui:include src="/slides/clientSideValidation01.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="clientSideValidation02" prependId="false">
                 <ui:include src="/slides/clientSideValidation02.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="clientSideValidation03" prependId="false">
                 <ui:include src="/slides/clientSideValidation03.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="effects01" prependId="false">
                 <ui:include src="/slides/effects01.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="effects02" prependId="false">
                 <ui:include src="/slides/effects02.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="animations" prependId="false">
                 <ui:include src="/slides/animations.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="media01" prependId="false">
                 <ui:include src="/slides/media01.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="media02" prependId="false">
                 <ui:include src="/slides/media02.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="meterAndProgress" prependId="false">
                 <ui:include src="/slides/meterAndProgress.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="datetime" prependId="false">
                 <ui:include src="/slides/datetime.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="suggestions" prependId="false">
                 <ui:include src="/slides/suggestions.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="dnd01" prependId="false">
                 <ui:include src="/slides/dnd01.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="dnd02" prependId="false">
                 <ui:include src="/slides/dnd02.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="dnd03" prependId="false">
                 <ui:include src="/slides/dnd03.xhtml" />
             </hx:slide>
-            <hx:slide>
+            <hx:slide id="infoEnd" prependId="false">
                 <ui:include src="/slides/infoEnd.xhtml" />
             </hx:slide>
         </hx:slideView>
@@ -112,7 +113,8 @@
         removeCDataAndTrim();
         prettyPrint();
         try {
-            slideView.goto(parseInt(window.location.hash.split('#')[1]));
+            if(parseInt(window.location.hash.split('#')[1]))
+                slideView.goto(parseInt(window.location.hash.split('#')[1]));
         }catch (e) {
             //do nothing
         }
