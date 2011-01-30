@@ -18,27 +18,14 @@
  */
 
 function submitForm(formId){
-   var inSinglePageView = false;
-   if(document.getElementById(formId))
-        inSinglePageView = true;
+   var form = document.getElementById(formId);
 
-   var form;
-   if(inSinglePageView)
-      form = document.getElementById(formId);
-   else
-      form = document.getElementById('slideView:' + formId);
-    
    var formValid = form.checkValidity();
    if(formValid){
        return true;
    }
    else{
-       var elems;
-       if(inSinglePageView)
-           elems = document.querySelectorAll('#' + formId + " :invalid");
-       else
-           elems = document.querySelectorAll('#slideView\\:' + formId + " :invalid");
-
+       var elems = document.querySelectorAll('#' + formId + " :invalid");
        if(elems && elems.length>0){
          elems[0].focus();
        }

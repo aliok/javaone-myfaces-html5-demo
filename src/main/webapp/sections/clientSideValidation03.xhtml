@@ -39,13 +39,7 @@
       
              <h:outputScript target="head" id="hackingButtonScript">
                  function hack(){
-                    if(document.getElementById('clientSideValidationForm03:it03')){
-                        document.getElementById('clientSideValidationForm03:it03').pattern='[0-9]{2}';
-                    }
-                    else{
-                        document.getElementById('slideView:clientSideValidationForm03:it03').pattern='[0-9]{2}';
-                    }
-
+                    document.getElementById('clientSideValidationForm03:it03').pattern='[0-9]{2}';
                     document.getElementById('hackDesc').className='visible appear';
                  }
              </h:outputScript>

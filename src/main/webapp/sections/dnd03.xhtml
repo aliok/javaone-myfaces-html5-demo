@@ -73,7 +73,7 @@
                                       <fx:animations event="drop" duration="1s" iteration="5">
                                           <fx:animationShake rotation="15" />
                                       </fx:animations>
-	                                  <fx:dropTarget dropListener="#{dndBean.processTeamDrop}" rerender="dynamicDnDContainer slideView:dynamicDnDContainer" types="F,B"/>
+	                                  <fx:dropTarget dropListener="#{dndBean.processTeamDrop}" rerender="dynamicDnDContainer" types="F,B"/>
 
 	                                  <div style="padding:5px; text-align: center;">
 	                                      <h:outputText value="All Teams" />
@@ -97,7 +97,7 @@
 	                                 <fx:animations event="drop" duration="1s" iteration="5">
                                           <fx:animationShake rotation="15" />
                                       </fx:animations>
-                                     <fx:dropTarget dropListener="#{dndBean.processBasketballTeamDrop}" rerender="dynamicDnDContainer slideView:dynamicDnDContainer" types="B"/>
+                                     <fx:dropTarget dropListener="#{dndBean.processBasketballTeamDrop}" rerender="dynamicDnDContainer" types="B"/>
 	                                    
 	                                 <div style="padding:5px; text-align: center;">
 	                                    <h:outputText value="Basketball Teams" />
@@ -121,7 +121,7 @@
                                       <fx:animations event="drop" duration="1s" iteration="5">
                                           <fx:animationShake rotation="15" />
                                       </fx:animations>
-	                                  <fx:dropTarget dropListener="#{dndBean.processFootballTeamDrop}" rerender="dynamicDnDContainer slideView:dynamicDnDContainer" types="F"/>
+	                                  <fx:dropTarget dropListener="#{dndBean.processFootballTeamDrop}" rerender="dynamicDnDContainer" types="F"/>
 	                              
 	                                  <div style="padding:5px; text-align: center;">
 	                                     <h:outputText value="Football Teams" />
