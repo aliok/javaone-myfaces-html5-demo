@@ -25,7 +25,8 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
-      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport"
+      xmlns:common="http://java.sun.com/jsf/composite/components/common">
 
 
 <ui:define name="title">
@@ -35,6 +36,10 @@
 
 <ui:define name="browserSupport">
     <bs:browserSupport webkitSupport="true" operaSupport="true" />
+</ui:define>
+
+<ui:define name="viewChangeLinks">
+    <common:viewChange singlePageName="clientSideValidation" slideId="clientSideValidation01" />
 </ui:define>
 
 

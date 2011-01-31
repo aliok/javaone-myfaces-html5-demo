@@ -157,3 +157,19 @@
     p.sectionManual{
         width : 80%;
     }
+
+    .slideViewSinglePageViewLink{
+        height:24px;
+        overflow:hidden;
+        z-index:99;
+
+        font-size:0.8em;
+        top: -14px;
+        text-align: left;
+
+        position:relative;
+        margin-bottom: -24px;
+        float : right;
+
+        font-size: small;
+    }

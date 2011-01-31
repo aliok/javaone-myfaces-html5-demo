@@ -25,7 +25,8 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
-      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport"
+      xmlns:common="http://java.sun.com/jsf/composite/components/common">
 
 <ui:define name="title">
     Date inputs
@@ -37,6 +38,10 @@
           Currently, Chrome does not show the date picker, but it validates the entered value.
       </f:facet>
   </bs:browserSupport>
+</ui:define>
+
+<ui:define name="viewChangeLinks">
+    <common:viewChange singlePageName="datetime" slideId="datetime" />
 </ui:define>
 
 <ui:define name="sectionContent">

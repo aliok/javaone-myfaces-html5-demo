@@ -26,15 +26,19 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
-      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport"
+      xmlns:common="http://java.sun.com/jsf/composite/components/common">
 
 <ui:define name="title">
     Animations
 </ui:define>
 
 <ui:define name="browserSupport">
-  <bs:browserSupport webkitSupport="true">
-  </bs:browserSupport>
+  <bs:browserSupport webkitSupport="true" />
+</ui:define>
+
+<ui:define name="viewChangeLinks">
+    <common:viewChange singlePageName="animations" slideId="animations" />
 </ui:define>
 
 <ui:define name="sectionContent">

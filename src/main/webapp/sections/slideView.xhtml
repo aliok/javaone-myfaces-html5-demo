@@ -17,10 +17,6 @@
   ~ under the License.
   -->
 
-
-
-
-
 <ui:composition template="/sections/sectionTemplate.xhtml"
       xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:f="http://java.sun.com/jsf/core" 
@@ -29,7 +25,8 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
-      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport"
+      xmlns:common="http://java.sun.com/jsf/composite/components/common">
 
 <ui:define name="title">
   Slide View
@@ -42,6 +39,10 @@
           any smooth transition.
       </f:facet>
   </bs:browserSupport>
+</ui:define>
+
+<ui:define name="viewChangeLinks">
+    <common:viewChange singlePageName="slideView" slideId="slideView" />
 </ui:define>
 
 <ui:define name="sectionContent">
@@ -101,7 +102,6 @@
             <a href="#" onclick="innerSlideView.right();return false;">Next</a>     <br/>
             <a href="#" onclick="innerSlideView.goto(2);return false;">Go to Third</a>  <br/>
             <a href="#" onclick="innerSlideView.goBySlideId('lastSlide');return false;">Last</a>   <br/>
-            <a href="#" onclick="innerSlideView.left(); return false;">Previous (does nothing)</a> <br/>
         </hx:slide>
         <hx:slide>
             <h:outputText value="SLIDE2" />                                          <br/>
@@ -116,6 +116,7 @@
         <hx:slide id="lastSlide">
             <h:outputText value="SLIDE4" />                                          <br/>
             <a href="#" onclick="innerSlideView.left(); return false;">Previous</a> <br/>
+            <a href="#" onclick="innerSlideView.right(); return false;">Next (does nothing)</a> <br/>
             <a href="#" onclick="innerSlideView.goBySlideId('firstSlide');return false;">First</a>
         </hx:slide>
     </hx:slideView>

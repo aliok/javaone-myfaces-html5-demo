@@ -18,53 +18,59 @@
   -->
 
 <ui:composition template="/sections/sectionTemplate.xhtml"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" >
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:common="http://java.sun.com/jsf/composite/components/common">
 
-<ui:define name="title">
-  Index
-</ui:define>
+    <ui:define name="title">
+        Index
+    </ui:define>
 
-<ui:define name="sectionContent">
-	          <div style="padding-left:15%;">
-			       <ul style="line-height:120%; list-style: upper-roman; font-size: 140%;" class="fontedHeader">
-                        <li>
-			                 <a href="#" onclick="slideView.goBySlideId('slideView');return false;">Slide View</a>
-                             <sup class="newFeature">New</sup>
-			            </li>
-			            <li>
-			                 <a href="#" onclick="slideView.goBySlideId('inputTypes');return false;">Input Types</a>
-			            </li>
-			           <li>
-                            <a href="#" onclick="slideView.goBySlideId('clientSideValidation01');return false;">Client Side Validation and Driving Properties with JSF Validators/Converters</a>
-			           </li>
-                       <li>
-                            <a href="#" onclick="slideView.goBySlideId('effects01');return false;">Effects</a>
-                            <sup class="newFeature">New</sup>
-			           </li>
-                       <li>
-                            <a href="#" onclick="slideView.goBySlideId('animations');return false;">Animations</a>
-                            <sup class="newFeature">New</sup>
-			           </li>
-                       <li>
-                            <a href="#" onclick="slideView.goBySlideId('media01');return false;">Video and Audio</a>
-			           </li>
-                       <li>
-                            <a href="#" onclick="slideView.goBySlideId('meterAndProgress');return false;">Meter and Progress</a>
-                            <sup class="newFeature">New</sup>
-			           </li>
-                       <li>
-                            <a href="#" onclick="slideView.goBySlideId('datetime');return false;">Date-Time</a>
-			            </li>
-			            <li>
-                            <a href="#" onclick="slideView.goBySlideId('suggestions');return false;">Suggestions</a>
-			            </li>
-			            <li>
-                            <a href="#" onclick="slideView.goBySlideId('dnd01');return false;">Drag and Drop</a>
-			            </li>
-			        </ul>
-			    </div>
-</ui:define>
+    <ui:define name="viewChangeLinks">
+        <common:viewChange singlePageName="multiPage" slideId="slidesIndex"/>
+    </ui:define>
+
+    <ui:define name="sectionContent">
+        <div style="padding-left:15%;">
+            <ul style="line-height:120%; list-style: upper-roman; font-size: 140%;" class="fontedHeader">
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('slideView');return false;">Slide View</a>
+                    <sup class="newFeature">New</sup>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('inputTypes');return false;">Input Types</a>
+                </li>
+                <li>
+                    <a href="#"
+                       onclick="slideView.goBySlideId('clientSideValidation01');return false;">Client Side Validation and Driving Properties with JSF Validators/Converters</a>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('effects01');return false;">Effects</a>
+                    <sup class="newFeature">New</sup>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('animations');return false;">Animations</a>
+                    <sup class="newFeature">New</sup>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('media01');return false;">Video and Audio</a>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('meterAndProgress');return false;">Meter and Progress</a>
+                    <sup class="newFeature">New</sup>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('datetime');return false;">Date-Time</a>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('suggestions');return false;">Suggestions</a>
+                </li>
+                <li>
+                    <a href="#" onclick="slideView.goBySlideId('dnd01');return false;">Drag and Drop</a>
+                </li>
+            </ul>
+        </div>
+    </ui:define>
 </ui:composition>

@@ -25,7 +25,8 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
-      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport"
+      xmlns:common="http://java.sun.com/jsf/composite/components/common">
 
 <ui:define name="title">
   Drag and Drop
@@ -37,6 +38,10 @@
           Does not work in Chrome because of <a href="http://code.google.com/p/chromium/issues/detail?id=50009" style="text-decoration: underline;">Chromium Issue-50009</a>
       </f:facet>
   </bs:browserSupport>
+</ui:define>
+
+<ui:define name="viewChangeLinks">
+    <common:viewChange singlePageName="dnd" slideId="dnd01" />
 </ui:define>
 
 <ui:define name="sectionContent">

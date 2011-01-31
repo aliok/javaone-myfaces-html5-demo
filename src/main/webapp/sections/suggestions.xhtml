@@ -25,7 +25,8 @@
       xmlns:hx="http://myfaces.apache.org/html5/html"
       xmlns:fx="http://myfaces.apache.org/html5/core"
       xmlns:sh="http://java.sun.com/jsf/composite/components/sh"
-      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport">
+      xmlns:bs="http://java.sun.com/jsf/composite/components/browserSupport"
+      xmlns:common="http://java.sun.com/jsf/composite/components/common">
 
 <ui:define name="title">
     Suggestions
@@ -37,6 +38,10 @@
           Works best in Opera. However dynamic update of suggestions is not working _properly_ because of a bug of Opera!
       </f:facet>
   </bs:browserSupport>
+</ui:define>
+
+<ui:define name="viewChangeLinks">
+    <common:viewChange singlePageName="suggestions" slideId="suggestions" />
 </ui:define>
 
 <ui:define name="sectionContent">
