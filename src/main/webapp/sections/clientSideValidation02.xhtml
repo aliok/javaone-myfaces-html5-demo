@@ -36,22 +36,12 @@
 </ui:define>
 
 <ui:define name="sectionContent">
-		     <h:form id="clientSideValidationForm02">
-	            <h:panelGrid columns="4">
-	                <h:outputLabel for="idt01" value="Date"/>
-                    <hx:inputDateTime id="idt01" type="date" value="#{dateTimeBean.date02}" step="3">
-                        <fx:validateDateTimeRange minimum="2010-08-15" maximum="2010-12-31"/>
-                    </hx:inputDateTime>
-                    <h:panelGroup id="idt01Msg">
-                        <h:message for="idt01" />
-                    </h:panelGroup>
-                    <sh:sh><![CDATA[
-<hx:inputDateTime type="date" step="3" ...>
-    <fx:validateDateTimeRange minimum="2010-08-15"
-        maximum="2010-12-31"/>
-</hx:inputDateTime>
-                    ]]></sh:sh>
-                    
+		    <p class="sectionManual">
+                Custom JSF validators can also drive client-side validation. The only thing required is implementing ClientSidePatternProvider interface and providing a pattern.
+            </p>
+
+            <h:form id="clientSideValidationForm02">
+	            <h:panelGrid columns="3">
                     <h:outputLabel for="it03" value="Client-side validation pattern driven by custom JSF validator"/>
                     <hx:inputText id="it03" value="#{clientSideValidationBean.param03}" placeholder="Enter a promo code" cols="20" 
                            alt="A promo code consists of 2 digits followed by 2 upper-case characters">
@@ -60,13 +50,22 @@
                     <h:panelGroup id="it03Msg">
                         <h:message for="it03" />
                     </h:panelGroup>
+
+	                <h:outputText />
+	                <input type="button" value="Try Submitting" 
+	                   onclick="if(submitForm('clientSideValidationForm02')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm02:it03Msg',onevent: handleAjaxEvent, onerror:handleAjaxError})};return false;"/>
+	                <h:outputText />
+	            </h:panelGrid>
+                <h:panelGrid columns="1">
                     <h:panelGroup>
 	                    <sh:sh><![CDATA[
 <hx:inputText ...>
    <f:validator validatorId="promoCodeValidator" />
 </hx:inputText>
 	                    ]]></sh:sh>
-	                    <sh:sh lang="java"><![CDATA[
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <sh:sh lang="java"><![CDATA[
 @FacesValidator(value="promoCodeValidator")
 public class PromoCodeValidator implements
     Validator, ClientSidePatternProvider{
@@ -87,15 +86,7 @@ public class PromoCodeValidator implements
 }
                         ]]></sh:sh>
                     </h:panelGroup>
-	                    
-                    
-	                <h:outputText />
-	                <input type="button" value="Try Submitting" 
-	                   onclick="if(submitForm('clientSideValidationForm02')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm02:idt01Msg clientSideValidationForm02:it03Msg',onevent: handleAjaxEvent, onerror:handleAjaxError})};return false;"/>
-	                <h:outputText />
-	                <h:outputText />
-	                               
-	            </h:panelGrid>
+                </h:panelGrid>
 	        </h:form>
 
 </ui:define>

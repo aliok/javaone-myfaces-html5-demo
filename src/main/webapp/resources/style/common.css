@@ -153,3 +153,7 @@
         font-variant: small-caps;
         font-weight: bold;
     }
+
+    p.sectionManual{
+        width : 80%;
+    }

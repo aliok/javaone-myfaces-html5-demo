@@ -46,6 +46,11 @@
     </script>
 
     <h:form id="clientSideValidationForm01">
+          <p class="sectionManual">
+              Try to type some inputs and submit the form. Form will not be submitted until validations are passed. Patterns can be defined in the JSF page and used in both client and server side.
+              For applicable components, patterns are set automatically. 
+          </p>
+
           <h:panelGrid columns="4">
               <h:outputLabel for="it01" value="Promo code" alt="Has pattern and required"/>
               <hx:inputText id="it01" value="#{clientSideValidationBean.param01}" placeholder="Enter a promo code" cols="20"
@@ -110,9 +115,23 @@
 </hx:inputNumberSpinner>
               ]]></sh:sh>
 
+              <h:outputLabel for="idt01" value="Date"/>
+             <hx:inputDateTime id="idt01" type="date" value="#{dateTimeBean.date02}" step="3">
+                <fx:validateDateTimeRange minimum="2010-08-15" maximum="2010-12-31"/>
+             </hx:inputDateTime>
+             <h:panelGroup id="idt01Msg">
+                <h:message for="idt01" />
+             </h:panelGroup>
+             <sh:sh><![CDATA[
+<hx:inputDateTime type="date" step="3" ...>
+<fx:validateDateTimeRange minimum="2010-08-15"
+    maximum="2010-12-31"/>
+</hx:inputDateTime>
+             ]]></sh:sh>
+
               <h:outputText />
               <input type="button" value="Try Submitting"
-                 onclick="if(submitForm('clientSideValidationForm01')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm01:it01Msg clientSideValidationForm01:it02Msg clientSideValidationForm01:ie01Msg clientSideValidationForm01:ins01Msg clientSideValidationForm01:ins02Msg',onevent: handleAjaxEvent, onerror:handleAjaxError})};return false;"/>
+                 onclick="if(submitForm('clientSideValidationForm01')){jsf.ajax.request(this,event, {execute:'@form',render:'clientSideValidationForm01:it01Msg clientSideValidationForm01:it02Msg clientSideValidationForm01:ie01Msg clientSideValidationForm01:ins01Msg clientSideValidationForm01:ins02Msg clientSideValidationForm01:idt01Msg ',onevent: handleAjaxEvent, onerror:handleAjaxError})};return false;"/>
               <h:outputText />
               <h:outputText />
 

@@ -40,12 +40,22 @@
 </ui:define>
 
 <ui:define name="sectionContent">
+
+              <h:outputStylesheet id="suggestionsInputStyles">
+                  input.suggestionsInput{
+                    font-family : Verdana, Ariel, sans, monospace;
+                  }
+              </h:outputStylesheet>
+
+              <p class="sectionManual">
+                  In the third example, the suggestion provider is seperated, and partially rendered on input on the Html input.
+              </p>
       
               <h:form id="suggestionsForm">
 	            <h:panelGrid columns="4">
 	             
 	             <h:outputLabel for="it01" value="Static Suggestions(1)"/>
-	             <hx:inputText id="it01" value="#{suggestionsBean.movie01}" placeholder="Type a movie name" cols="25">
+	             <hx:inputText id="it01" value="#{suggestionsBean.movie01}" placeholder="Type a movie name" cols="25" styleClass="suggestionsInput">
 	                <f:selectItems value="#{suggestionsBean.staticSuggestionItems}" />
 	             </hx:inputText>
 	             <h:message for="it01" />
@@ -57,7 +67,7 @@
 	             
 	             <h:outputLabel for="it02" value="Static Suggestions(2)"/>
 	             <hx:inputText id="it02" value="#{suggestionsBean.movie02}" placeholder="Type a movie name" cols="25"
-	                suggestions="The Shawshank Redemption, The Godfather, The Godfather: Part II"/>
+	                suggestions="The Shawshank Redemption, The Godfather, The Godfather: Part II" styleClass="suggestionsInput"/>
 	             <h:message for="it02" />
 	             <sh:sh><![CDATA[
 <hx:inputText
@@ -68,7 +78,7 @@
 	             <h:outputLabel for="it03" value="Dynamic Suggestions"/>
 	             <h:panelGroup>
 	                 <hx:inputText id="it03" value="#{suggestionsBean.favoriteMovie}" placeholder="Type a movie name" cols="25" 
-	                     datalist="suggestionsForm:movieSuggestionsDataList">
+	                     datalist="suggestionsForm:movieSuggestionsDataList" styleClass="suggestionsInput">
 	                     <f:ajax event="input" render="movieSuggestionsDataList" execute="@this"/>
 	                 </hx:inputText>
 	                 <hx:dataList id="movieSuggestionsDataList">

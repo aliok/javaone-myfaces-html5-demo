@@ -43,7 +43,17 @@
                     document.getElementById('hackDesc').className='visible appear';
                  }
              </h:outputScript>
-		     
+
+            <p class="sectionManual">
+                Even if the client-side validation is passed by changing the pattern attribute with Javascript, server-side validation always works.
+            </p>
+            <p class="sectionManual">
+                Because of custom JSF validator, "promoCodeValidator", the pattern defined is 2 numbers and 2 uppercase letters. "Hacking button" changes the pattern attribute of the input element
+                to accept only 2 numbers, however server-side code is not changed. Try typing a 2 digit number in the input and submit the form. After pressing the "Hack Button", you will be able to
+                send the form, but server-side validation will fail.
+            </p>
+
+
 		     <h:form id="clientSideValidationForm03">
 	            <h:panelGrid columns="3">
 	                
